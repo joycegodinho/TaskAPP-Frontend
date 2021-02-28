@@ -4,8 +4,8 @@ import Button from './Button'
 import styled from 'styled-components';
 
 const Nav = styled.nav`
-    padding: 1em;
-    background: #f5f4f0;
+    padding: 2em;
+    background: #F2F3F4;
 
     @media (max-width: 700px) {
         padding-top: 64px;
@@ -13,7 +13,7 @@ const Nav = styled.nav`
 
     @media (min-width: 700px) {
         position: fixed;
-        width: 220px;
+        width: 180px;
         height: calc(100% - 64px);
     }
 `;
@@ -22,7 +22,7 @@ const Nav = styled.nav`
 const Navigation = () => {
     return(
         <Nav>
-            <Button>add +</Button>
+            <Button>+ add</Button>
             
         </Nav>
     );

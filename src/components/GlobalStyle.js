@@ -11,12 +11,12 @@ export default createGlobalStyle `
     body,
     html {
         height: 100%;
-        margin: 0;
+        margin: 0 px;
     }
 
     body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-        background-color: #fff;
+        background-color: #F2F3F4;
         line-height: 1.4;
     }
 

@@ -35910,9 +35910,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var HeaderBar = _styledComponents.default.header(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 0.5em 1em;\n    diplay: flex;\n    height: 64px\n    position: fixed;\n    align-items: center;\n    background-color: #fff;\n    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);\n    z-index: 1;\n\n"])));
+var HeaderBar = _styledComponents.default.header(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 1.5em 2em;\n    diplay: flex;\n    height: 64px\n    position: fixed;\n    align-items: center;\n    background-color: #F2F3F4;\n    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);\n    z-index: 1;\n\n"])));
 
-var LogoText = _styledComponents.default.h1(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    margin: 0;\n    padding: 0;\n    display: inline;\n"])));
+var LogoText = _styledComponents.default.h1(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    margin: 150px;\n    padding: 0;\n    display: inline;\n    color: #7B7D7D;\n"])));
 
 var Header = function Header() {
   return /*#__PURE__*/_react.default.createElement(HeaderBar, null, /*#__PURE__*/_react.default.createElement(LogoText, null, "Task List"));
@@ -35936,7 +35936,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Button = _styledComponents.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral([" \n    display: block;\n    padding: 10px;\n    border: none;\n    border-radius: 5px;\n    font-size: 18px;\n    color: #fff;\n    background-color: #0077cc;\n    cursor: pointer;\n\n    :hover {\n        opacity: 0.8;\n    }\n\n    :active {\n        background-color: #005fa3;\n    }\n"])));
+var Button = _styledComponents.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral([" \n    display: block;\n    padding: 7px;\n    border: none;\n    border-radius: 5px;\n    font-size: 20px;\n    color: #7B7D7D;\n    background-color: #F2F3F4;\n    cursor: pointer;\n\n    :hover {\n        background-color: #EAEDED;\n    }\n\n    :active {\n        background-color: #E5E8E8;\n    }\n"])));
 
 var _default = Button;
 exports.default = _default;
@@ -35960,10 +35960,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Nav = _styledComponents.default.nav(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    padding: 1em;\n    background: #f5f4f0;\n\n    @media (max-width: 700px) {\n        padding-top: 64px;\n    }\n\n    @media (min-width: 700px) {\n        position: fixed;\n        width: 220px;\n        height: calc(100% - 64px);\n    }\n"])));
+var Nav = _styledComponents.default.nav(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    padding: 2em;\n    background: #F2F3F4;\n\n    @media (max-width: 700px) {\n        padding-top: 64px;\n    }\n\n    @media (min-width: 700px) {\n        position: fixed;\n        width: 180px;\n        height: calc(100% - 64px);\n    }\n"])));
 
 var Navigation = function Navigation() {
-  return /*#__PURE__*/_react.default.createElement(Nav, null, /*#__PURE__*/_react.default.createElement(_Button.default, null, "add +"));
+  return /*#__PURE__*/_react.default.createElement(Nav, null, /*#__PURE__*/_react.default.createElement(_Button.default, null, "+ add"));
 };
 
 var _default = Navigation;
@@ -36160,7 +36160,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var _default = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    ", "\n\n    *, *:before, *:after {\n        box-sizing: border-box;\n    }\n\n    body,\n    html {\n        height: 100%;\n        margin: 0;\n    }\n\n    body {\n        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;\n        background-color: #fff;\n        line-height: 1.4;\n    }\n\n    a:link, \n    a:visited {\n        color: #0077cc;\n    }\n\n    a:hover, \n    a:focus {\n        color: #004499\n    }\n\n    code,\n    pre {\n        max-width: 100%;\n    }\n"])), _normalize.default);
+var _default = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    ", "\n\n    *, *:before, *:after {\n        box-sizing: border-box;\n    }\n\n    body,\n    html {\n        height: 100%;\n        margin: 0 px;\n    }\n\n    body {\n        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;\n        background-color: #F2F3F4;\n        line-height: 1.4;\n    }\n\n    a:link, \n    a:visited {\n        color: #0077cc;\n    }\n\n    a:hover, \n    a:focus {\n        color: #004499\n    }\n\n    code,\n    pre {\n        max-width: 100%;\n    }\n"])), _normalize.default);
 
 exports.default = _default;
 },{"styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","normalize.css":"../node_modules/normalize.css/normalize.css"}],"App.js":[function(require,module,exports) {
@@ -36212,7 +36212,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65316" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63307" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
