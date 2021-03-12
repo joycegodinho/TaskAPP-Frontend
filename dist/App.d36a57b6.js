@@ -100763,7 +100763,7 @@ var MetaInfo = _styledComponents.default.div(_templateObject3 || (_templateObjec
 
 var Task = function Task(_ref) {
   var task = _ref.task;
-  return /*#__PURE__*/_react.default.createElement(StyledTask, null, /*#__PURE__*/_react.default.createElement(MetaData, null, /*#__PURE__*/_react.default.createElement(MetaInfo, null, /*#__PURE__*/_react.default.createElement("em", null, "by"), " ", task.author.username, " ", /*#__PURE__*/_react.default.createElement("br", null), (0, _dateFns.format)(new Date(task.createdAt), 'MM dd yyyy'))), /*#__PURE__*/_react.default.createElement(_reactMarkdown.default, {
+  return /*#__PURE__*/_react.default.createElement(StyledTask, null, /*#__PURE__*/_react.default.createElement(MetaData, null, /*#__PURE__*/_react.default.createElement(MetaInfo, null, /*#__PURE__*/_react.default.createElement("em", null, "by"), " ", task.author.username, " ", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("em", null, "created at"), " ", (0, _dateFns.format)(new Date(task.createdAt), 'MM dd yyyy'), " ", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("em", null, "updated at"), " ", (0, _dateFns.format)(new Date(task.updatedAt), 'MM dd yyyy'))), /*#__PURE__*/_react.default.createElement(_reactMarkdown.default, {
     source: task.content
   }));
 };
@@ -100782,6 +100782,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
+var _reactRouterDom = require("react-router-dom");
+
 var _Task = _interopRequireDefault(require("./Task"));
 
 var _templateObject;
@@ -100799,13 +100801,15 @@ var TaskFeed = function TaskFeed(_ref) {
       key: task.id
     }, /*#__PURE__*/_react.default.createElement(_Task.default, {
       task: task
-    }));
+    }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      to: "task/".concat(task.id)
+    }, "Link to Task"));
   }));
 };
 
 var _default = TaskFeed;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./Task":"components/Task.js"}],"pages/home.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./Task":"components/Task.js"}],"pages/home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -100821,9 +100825,23 @@ var _client = require("@apollo/client");
 
 var _TaskFeed = _interopRequireDefault(require("../components/TaskFeed"));
 
+var _Button = _interopRequireDefault(require("../components/Button"));
+
 var _templateObject;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -100838,14 +100856,33 @@ var Home = function Home() {
 
   if (loading) return /*#__PURE__*/_react.default.createElement("p", null, "Loading...");
   if (error) return /*#__PURE__*/_react.default.createElement("p", null, "Error!");
-  return /*#__PURE__*/_react.default.createElement(_TaskFeed.default, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_TaskFeed.default, {
     tasks: data.tasks.tasks
-  });
+  }), data.tasks.hasNextPage && /*#__PURE__*/_react.default.createElement(_Button.default, {
+    onClick: function onClick() {
+      return fetchMore({
+        variables: {
+          cursor: data.tasks.cursor
+        },
+        updateQuery: function updateQuery(previusResult, _ref) {
+          var fetchMoreResult = _ref.fetchMoreResult;
+          return {
+            tasks: {
+              cursor: fetchMoreResult.tasks.cursor,
+              hasNextPage: fetchMoreResult.tasks.hasNextPage,
+              tasks: [].concat(_toConsumableArray(previusResult.tasks.tasks), _toConsumableArray(fetchMoreResult.tasks.tasks)),
+              __typename: 'tasks'
+            }
+          };
+        }
+      });
+    }
+  }, "Load more"));
 };
 
 var _default = Home;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-markdown":"../node_modules/react-markdown/lib/react-markdown.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/TaskFeed":"components/TaskFeed.js"}],"pages/singletask.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-markdown":"../node_modules/react-markdown/lib/react-markdown.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/TaskFeed":"components/TaskFeed.js","../components/Button":"components/Button.js"}],"pages/singletask.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -100855,15 +100892,41 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _client = require("@apollo/client");
+
+var _Task = _interopRequireDefault(require("../components/Task"));
+
+var _templateObject;
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var SingleTask = function SingleTask() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "This is a single task"));
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var GET_TASK = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    query task($id:ID!) {\n        task(id: $id) {\n            id\n            createdAt\n            updatedAt\n            content\n            completed\n            author {\n                username\n                id\n            }\n        }\n    }\n"])));
+
+var SingleTask = function SingleTask(props) {
+  var id = props.match.params.id;
+  console.log(id);
+
+  var _useQuery = (0, _client.useQuery)(GET_TASK, {
+    variables: {
+      id: id
+    }
+  }),
+      loading = _useQuery.loading,
+      error = _useQuery.error,
+      data = _useQuery.data;
+
+  if (loading) return /*#__PURE__*/_react.default.createElement("p", null, "Loading...");
+  if (error) return /*#__PURE__*/_react.default.createElement("p", null, "Task not found");
+  return /*#__PURE__*/_react.default.createElement(_Task.default, {
+    task: data.task
+  });
 };
 
 var _default = SingleTask;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"pages/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/Task":"components/Task.js"}],"pages/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -100885,10 +100948,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Pages = function Pages() {
   return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_Layout.default, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
     path: "/",
     component: _home.default
   }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    path: "/singletask",
+    path: "/task/:id",
     component: _singletask.default
   })));
 };
@@ -100956,7 +101020,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52378" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60615" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

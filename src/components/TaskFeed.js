@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const TaskWrapper = styled.div`
     max-width: 800px;
@@ -18,6 +19,7 @@ const TaskFeed = ({ tasks }) => {
             {tasks.map(task => (
                 <TaskWrapper key={task.id}>
                     <Task task={task} />
+                    <Link to={`task/${task.id}`}>Link to Task</Link>
                 </TaskWrapper>
             ))}
         </div>

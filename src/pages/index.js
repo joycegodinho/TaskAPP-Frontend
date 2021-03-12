@@ -6,16 +6,13 @@ import Layout from '../components/Layout'
 import Home from './home'
 import SingleTask from './singletask'
 
-
-
-
 const Pages = () => {
     return (
         <Router>
            
             <Layout>
-                <Route path="/" component={Home} />
-                <Route path="/singletask" component={SingleTask} />
+                <Route exact path="/" component={Home} />
+                <Route path="/task/:id" component={SingleTask} /> 
             </Layout>   
 
             

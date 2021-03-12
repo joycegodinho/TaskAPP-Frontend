@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { useQuery, gql } from '@apollo/client';
 
 import TaskFeed from '../components/TaskFeed'
+import Button from '../components/Button';
 
 const GET_TASKS = gql`
     query TaskFeed($cursor: String) {
@@ -29,7 +30,31 @@ const Home = () => {
     const {data, loading, error, fetchMore } = useQuery(GET_TASKS);
     if(loading) return <p>Loading...</p>;
     if(error) return <p>Error!</p>;
-    return <TaskFeed tasks={data.tasks.tasks} />
+    return (
+        <React.Fragment>
+            <TaskFeed tasks={data.tasks.tasks} />
+            {data.tasks.hasNextPage && (
+                <Button onClick={() => 
+                    fetchMore({ variables: { cursor: data.tasks.cursor },
+                        updateQuery: (previusResult, { fetchMoreResult }) => {
+                            return {
+                                tasks: {
+                                    cursor: fetchMoreResult.tasks.cursor,
+                                    hasNextPage: fetchMoreResult.tasks.hasNextPage,
+                                    tasks: [
+                                        ...previusResult.tasks.tasks,
+                                        ...fetchMoreResult.tasks.tasks
+                                    ],
+                                    __typename: 'tasks'
+                                }
+                            };
+                        }
+                    })
+                }>Load more</Button>
+            )}
+        </React.Fragment>
+    ) 
+    
 };
 
 export default Home;

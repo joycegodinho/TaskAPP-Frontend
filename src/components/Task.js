@@ -27,7 +27,8 @@ const Task = ({ task }) => {
             <MetaData>
                 <MetaInfo>
                 <em>by</em> {task.author.username} <br />
-                <em>Created at</em> {format(new Date(task.createdAt), 'MM dd yyyy')}
+                <em>created at</em> {format(new Date(task.createdAt), 'MM dd yyyy')} <br />
+                <em>updated at</em> {format(new Date(task.updatedAt), 'MM dd yyyy')}
                 </MetaInfo>
             </MetaData>
             <ReactMarkdown source={task.content} />
@@ -35,3 +36,4 @@ const Task = ({ task }) => {
     )
 }
 
+export default Task;
