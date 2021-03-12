@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Layout from '../components/Layout'
 
-import AllTodos from './alltodos'
-import SingleTodo from './singletodo'
+import Home from './home'
+import SingleTask from './singletask'
 
 
 
@@ -14,8 +14,8 @@ const Pages = () => {
         <Router>
            
             <Layout>
-                <Route path="/todos" component={AllTodos} />
-                <Route path="/singletodo" component={SingleTodo} />
+                <Route path="/" component={Home} />
+                <Route path="/singletask" component={SingleTask} />
             </Layout>   
 
             

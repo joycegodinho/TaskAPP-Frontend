@@ -1,18 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ApolloClient, ApolloProvider, createHttpLink } from '@apollo/client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
-import Pages from '/pages'
-import GlobalStyle from '/components/GlobalStyle'
+import GlobalStyle from '/components/GlobalStyle';
+import Pages from '/pages';
 
-//<GlobalStyle />
-//<Pages /> 
+const uri = process.env.API_URI;
+const cache = new InMemoryCache();
 
+const client = new ApolloClient ({
+    uri,
+    cache,
+    connectToDevTools: true
+});
 const App = () => {
     return(
-        <div>
+        <ApolloProvider client={client}>
             <GlobalStyle />
             <Pages />
-        </div>
+        </ApolloProvider>
     );
 };
 
