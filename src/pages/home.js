@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 import { useQuery, gql } from '@apollo/client';
 
 import TaskFeed from '../components/TaskFeed'

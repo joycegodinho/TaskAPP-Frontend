@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
-
 import { format } from 'date-fns';
 import styled from 'styled-components';
+
+import DeleteTask from './DeleteTask';
 
 const StyledTask = styled.article`
     max-width: 800px;
@@ -32,7 +33,8 @@ const Task = ({ task }) => {
                 <em>created at</em> {format(new Date(task.createdAt), 'MM dd yyyy')} <br />
                 <em>updated at</em> {format(new Date(task.updatedAt), 'MM dd yyyy')} <br />
                 <em>completed</em> {String(task.completed)} <br />
-                <Link to={`/edit/${task.id}`}>Edit</Link> 
+                <Link to={`/edit/${task.id}`}>Edit</Link> <br />
+                <DeleteTask taskId={task.id} />
                 
                 </MetaInfo>
             </MetaData>

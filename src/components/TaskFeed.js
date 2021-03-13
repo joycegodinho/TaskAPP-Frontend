@@ -10,19 +10,23 @@ const TaskWrapper = styled.div`
     border-bottom: 1px solid #000000;
 `
 
+const TasksWrapper = styled.div`
+    padding-bottom: 5em;
+`
+
 import Task from './Task';
 
 
 const TaskFeed = ({ tasks }) => {
     return (
-        <div>
+        <TasksWrapper>
             {tasks.map(task => (
                 <TaskWrapper key={task.id}>
                     <Task task={task} />
                     <Link to={`task/${task.id}`}>Link to Task</Link>
                 </TaskWrapper>
             ))}
-        </div>
+        </TasksWrapper>
     )
 }
 

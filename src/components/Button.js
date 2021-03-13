@@ -2,12 +2,15 @@ import styled from 'styled-components';
 
 const Button = styled.button` 
     display: block;
-    padding: 7px;
+    border-top: 9em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 9em;
     border: none;
     border-radius: 5px;
     font-size: 20px;
     color: #7B7D7D;
-    background-color: #F2F3F4;
+    background-color: #6E6ECD ;
     cursor: pointer;
 
     :hover {
