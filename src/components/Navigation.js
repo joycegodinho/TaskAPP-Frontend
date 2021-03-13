@@ -1,6 +1,5 @@
 import React from 'react';
-
-import Button from './Button'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
@@ -18,12 +17,42 @@ const Nav = styled.nav`
     }
 `;
 
+const NavList = styled.ul`
+    margin: 10px;
+    padding: 10px;
+    list-style: none;
+    line-height: 2;
+
+
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1em;
+        color: #000000;
+    }
+
+    a:visited {
+        color: #000000;
+    }
+
+    a:hover,
+    a:focus {
+        color: #0077cc;
+    }
+`;
 
 const Navigation = () => {
     return(
         <Nav>
-            <Button>+ add</Button>
-            
+            <NavList>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to='/new'>+ new</Link>
+                </li>
+            </NavList>
         </Nav>
     );
 };

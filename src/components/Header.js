@@ -1,5 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useQuery, gql } from '@apollo/client';
+import { Link, withRouter } from 'react-router-dom';
+
+import ButtonAsLink from './ButtonAsLink';
+
+const IS_LOGGED_IN = gql`
+    {
+        isLoggedIn @client
+    }
+`
 
 const HeaderBar = styled.header`
     width: 100%;
@@ -21,12 +31,50 @@ const LogoText = styled.h1`
     color: #7B7D7D;
 `;
 
-const Header = () => {
-    return (
-        <HeaderBar>
-            <LogoText>Task List</LogoText>
-        </HeaderBar>
-    );
-};
+const UserState = styled.div`
+    margin-left: auto;
+`;
 
-export default Header;
+const Header = props => {
+    // query hook for user logged in state
+    const { data, client } = useQuery(IS_LOGGED_IN);
+  
+    return (
+      <HeaderBar>
+        <LogoText>Task App</LogoText>
+        {/* If logged in display a log out link, else display sign in options */}
+        <UserState>
+          {data.isLoggedIn ? (
+            <ButtonAsLink
+              onClick={() => {
+                // remove the token
+                localStorage.removeItem('token');
+                // clear the application's cache
+                client.resetStore();
+                // update local state
+                client.writeQuery({ 
+                    query: gql`
+                        query Logged {
+                            isLoggedIn
+                        }
+                    `,
+                    data: {isLoggedIn: false}})
+                // redirect the user to the homepage
+                props.history.push('/');
+              }}
+            >
+              Logout
+            </ButtonAsLink>
+          ) : (
+            <p>
+              <Link to={'/signin'}>Sign In</Link> or{' '}
+              <Link to={'/signup'}>Sign Up</Link>
+            </p>
+          )}
+        </UserState>
+      </HeaderBar>
+    );
+  };
+  
+  export default withRouter(Header);
+  

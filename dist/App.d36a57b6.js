@@ -10814,7 +10814,7 @@ if ("development" !== "production") {
       }
 
       var eventName = 'on' + eventNameSuffix;
-      var isSupported = (eventName in document);
+      var isSupported = eventName in document;
 
       if (!isSupported) {
         var element = document.createElement('div');
@@ -30749,7 +30749,9 @@ function _getPrototypeOf(o) {
  * and stack trace, it also includes information about the locations in a
  * GraphQL document and/or execution result that correspond to the Error.
  */
-var GraphQLError = /*#__PURE__*/function (_Error) {
+var GraphQLError =
+/*#__PURE__*/
+function (_Error) {
   _inherits(GraphQLError, _Error);
 
   var _super = _createSuper(GraphQLError);
@@ -30957,7 +30959,9 @@ var GraphQLError = /*#__PURE__*/function (_Error) {
   }]);
 
   return GraphQLError;
-}( /*#__PURE__*/_wrapNativeSuper(Error));
+}(
+/*#__PURE__*/
+_wrapNativeSuper(Error));
 /**
  * Prints a GraphQLError to a string, representing useful location information
  * about the error's position in the source.
@@ -31144,7 +31148,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Contains a range of UTF-8 character offsets and token references that
  * identify the region of the source from which the AST derived.
  */
-var Location = /*#__PURE__*/function () {
+var Location =
+/*#__PURE__*/
+function () {
   /**
    * The character offset at which this Node begins.
    */
@@ -31192,7 +31198,9 @@ exports.Location = Location;
  * within a Source.
  */
 
-var Token = /*#__PURE__*/function () {
+var Token =
+/*#__PURE__*/
+function () {
   /**
    * The kind of Token.
    */
@@ -31545,7 +31553,9 @@ function _createClass(Constructor, protoProps, staticProps) {
  * be useful for `name` to be `"Foo.graphql"` and location to be `{ line: 40, column: 1 }`.
  * The `line` and `column` properties in `locationOffset` are 1-indexed.
  */
-var Source = /*#__PURE__*/function () {
+var Source =
+/*#__PURE__*/
+function () {
   function Source(body) {
     var name = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'GraphQL request';
     var locationOffset = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
@@ -31782,7 +31792,9 @@ var _blockString = require("./blockString.mjs");
  * EOF, after which the lexer will repeatedly return the same EOF token
  * whenever called.
  */
-var Lexer = /*#__PURE__*/function () {
+var Lexer =
+/*#__PURE__*/
+function () {
   /**
    * The previously focused non-ignored token.
    */
@@ -32536,7 +32548,9 @@ function parseType(source, options) {
  */
 
 
-var Parser = /*#__PURE__*/function () {
+var Parser =
+/*#__PURE__*/
+function () {
   function Parser(source, options) {
     var sourceObj = (0, _source.isSource)(source) ? source : new _source.Source(source);
     this._lexer = new _lexer.Lexer(sourceObj);
@@ -34859,7 +34873,9 @@ function suggestionList(input, options) {
  */
 
 
-var LexicalDistance = /*#__PURE__*/function () {
+var LexicalDistance =
+/*#__PURE__*/
+function () {
   function LexicalDistance(input) {
     this._input = input;
     this._inputLowerCase = input.toLowerCase();
@@ -35866,7 +35882,9 @@ function undefineIfEmpty(arr) {
  */
 
 
-var GraphQLScalarType = /*#__PURE__*/function () {
+var GraphQLScalarType =
+/*#__PURE__*/
+function () {
   function GraphQLScalarType(config) {
     var _config$parseValue, _config$serialize, _config$parseLiteral;
 
@@ -35969,7 +35987,9 @@ exports.GraphQLScalarType = GraphQLScalarType;
  *
  */
 
-var GraphQLObjectType = /*#__PURE__*/function () {
+var GraphQLObjectType =
+/*#__PURE__*/
+function () {
   function GraphQLObjectType(config) {
     this.name = config.name;
     this.description = config.description;
@@ -36145,7 +36165,9 @@ function isRequiredArgument(arg) {
  */
 
 
-var GraphQLInterfaceType = /*#__PURE__*/function () {
+var GraphQLInterfaceType =
+/*#__PURE__*/
+function () {
   function GraphQLInterfaceType(config) {
     this.name = config.name;
     this.description = config.description;
@@ -36238,7 +36260,9 @@ exports.GraphQLInterfaceType = GraphQLInterfaceType;
  *
  */
 
-var GraphQLUnionType = /*#__PURE__*/function () {
+var GraphQLUnionType =
+/*#__PURE__*/
+function () {
   function GraphQLUnionType(config) {
     this.name = config.name;
     this.description = config.description;
@@ -36499,7 +36523,9 @@ function defineEnumValues(typeName, valueMap) {
  */
 
 
-var GraphQLInputObjectType = /*#__PURE__*/function () {
+var GraphQLInputObjectType =
+/*#__PURE__*/
+function () {
   function GraphQLInputObjectType(config) {
     this.name = config.name;
     this.description = config.description;
@@ -38049,7 +38075,9 @@ function assertDirective(directive) {
  */
 
 
-var GraphQLDirective = /*#__PURE__*/function () {
+var GraphQLDirective =
+/*#__PURE__*/
+function () {
   function GraphQLDirective(config) {
     var _config$isRepeatable, _config$args;
 
@@ -38330,7 +38358,9 @@ function assertSchema(schema) {
  */
 
 
-var GraphQLSchema = /*#__PURE__*/function () {
+var GraphQLSchema =
+/*#__PURE__*/
+function () {
   // Used as a cache for validateSchema().
   function GraphQLSchema(config) {
     var _config$directives; // If this schema was built from a source known to be valid, then it may be
@@ -38672,7 +38702,9 @@ function assertValidSchema(schema) {
   }
 }
 
-var SchemaValidationContext = /*#__PURE__*/function () {
+var SchemaValidationContext =
+/*#__PURE__*/
+function () {
   function SchemaValidationContext(schema) {
     this._errors = [];
     this.schema = schema;
@@ -39224,7 +39256,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * of the current field and type definitions at any point in a GraphQL document
  * AST during a recursive descent by calling `enter(node)` and `leave(node)`.
  */
-var TypeInfo = /*#__PURE__*/function () {
+var TypeInfo =
+/*#__PURE__*/
+function () {
   function TypeInfo(schema, // NOTE: this experimental optional second parameter is only needed in order
   // to support non-spec-compliant code bases. You should never need to use it.
   // It may disappear in the future.
@@ -41854,7 +41888,9 @@ function subfieldConflicts(conflicts, responseName, node1, node2) {
  */
 
 
-var PairSet = /*#__PURE__*/function () {
+var PairSet =
+/*#__PURE__*/
+function () {
   function PairSet() {
     this._data = Object.create(null);
   }
@@ -42525,7 +42561,9 @@ function _inheritsLoose(subClass, superClass) {
  * allowing access to commonly useful contextual information from within a
  * validation rule.
  */
-var ASTValidationContext = /*#__PURE__*/function () {
+var ASTValidationContext =
+/*#__PURE__*/
+function () {
   function ASTValidationContext(ast, onError) {
     this._ast = ast;
     this._fragments = undefined;
@@ -42625,7 +42663,9 @@ var ASTValidationContext = /*#__PURE__*/function () {
 
 exports.ASTValidationContext = ASTValidationContext;
 
-var SDLValidationContext = /*#__PURE__*/function (_ASTValidationContext) {
+var SDLValidationContext =
+/*#__PURE__*/
+function (_ASTValidationContext) {
   _inheritsLoose(SDLValidationContext, _ASTValidationContext);
 
   function SDLValidationContext(ast, schema, onError) {
@@ -42647,7 +42687,9 @@ var SDLValidationContext = /*#__PURE__*/function (_ASTValidationContext) {
 
 exports.SDLValidationContext = SDLValidationContext;
 
-var ValidationContext = /*#__PURE__*/function (_ASTValidationContext2) {
+var ValidationContext =
+/*#__PURE__*/
+function (_ASTValidationContext2) {
   _inheritsLoose(ValidationContext, _ASTValidationContext2);
 
   function ValidationContext(schema, ast, typeInfo, onError) {
@@ -54494,7 +54536,9 @@ function _interopRequireDefault(obj) {
  */
 
 
-var Location = /*#__PURE__*/function () {
+var Location =
+/*#__PURE__*/
+function () {
   /**
    * The character offset at which this Node begins.
    */
@@ -54542,7 +54586,9 @@ exports.Location = Location;
  * within a Source.
  */
 
-var Token = /*#__PURE__*/function () {
+var Token =
+/*#__PURE__*/
+function () {
   /**
    * The kind of Token.
    */
@@ -67267,7 +67313,390 @@ var InMemoryCache = function (_super) {
 }(_apolloCache.ApolloCache);
 
 exports.InMemoryCache = InMemoryCache;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","apollo-cache":"../node_modules/apollo-cache/lib/bundle.esm.js","apollo-utilities":"../node_modules/apollo-utilities/lib/bundle.esm.js","optimism":"../node_modules/apollo-cache-inmemory/node_modules/optimism/lib/bundle.esm.js","ts-invariant":"../node_modules/apollo-cache-inmemory/node_modules/ts-invariant/lib/invariant.esm.js"}],"../node_modules/react-is/cjs/react-is.development.js":[function(require,module,exports) {
+},{"tslib":"../node_modules/tslib/tslib.es6.js","apollo-cache":"../node_modules/apollo-cache/lib/bundle.esm.js","apollo-utilities":"../node_modules/apollo-utilities/lib/bundle.esm.js","optimism":"../node_modules/apollo-cache-inmemory/node_modules/optimism/lib/bundle.esm.js","ts-invariant":"../node_modules/apollo-cache-inmemory/node_modules/ts-invariant/lib/invariant.esm.js"}],"../node_modules/zen-observable-ts/lib/bundle.esm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Observable = exports.default = void 0;
+
+var _zenObservable = _interopRequireDefault(require("zen-observable"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Observable = _zenObservable.default;
+exports.Observable = Observable;
+var _default = Observable;
+exports.default = _default;
+},{"zen-observable":"../node_modules/zen-observable/index.js"}],"../node_modules/apollo-link/node_modules/ts-invariant/lib/invariant.esm.js":[function(require,module,exports) {
+var process = require("process");
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.invariant = invariant;
+exports.process = exports.InvariantError = exports.default = void 0;
+
+var _tslib = require("tslib");
+
+var genericMessage = "Invariant Violation";
+var _a = Object.setPrototypeOf,
+    setPrototypeOf = _a === void 0 ? function (obj, proto) {
+  obj.__proto__ = proto;
+  return obj;
+} : _a;
+
+var InvariantError =
+/** @class */
+function (_super) {
+  (0, _tslib.__extends)(InvariantError, _super);
+
+  function InvariantError(message) {
+    if (message === void 0) {
+      message = genericMessage;
+    }
+
+    var _this = _super.call(this, typeof message === "number" ? genericMessage + ": " + message + " (see https://github.com/apollographql/invariant-packages)" : message) || this;
+
+    _this.framesToPop = 1;
+    _this.name = genericMessage;
+    setPrototypeOf(_this, InvariantError.prototype);
+    return _this;
+  }
+
+  return InvariantError;
+}(Error);
+
+exports.InvariantError = InvariantError;
+
+function invariant(condition, message) {
+  if (!condition) {
+    throw new InvariantError(message);
+  }
+}
+
+function wrapConsoleMethod(method) {
+  return function () {
+    return console[method].apply(console, arguments);
+  };
+}
+
+(function (invariant) {
+  invariant.warn = wrapConsoleMethod("warn");
+  invariant.error = wrapConsoleMethod("error");
+})(invariant || (exports.invariant = invariant = {})); // Code that uses ts-invariant with rollup-plugin-invariant may want to
+// import this process stub to avoid errors evaluating process.env.NODE_ENV.
+// However, because most ESM-to-CJS compilers will rewrite the process import
+// as tsInvariant.process, which prevents proper replacement by minifiers, we
+// also attempt to define the stub globally when it is not already defined.
+
+
+var processStub = {
+  env: {}
+};
+exports.process = processStub;
+
+if (typeof process === "object") {
+  exports.process = processStub = process;
+} else try {
+  // Using Function to evaluate this assignment in global scope also escapes
+  // the strict mode of the current module, thereby allowing the assignment.
+  // Inspired by https://github.com/facebook/regenerator/pull/369.
+  Function("stub", "process = stub")(processStub);
+} catch (atLeastWeTried) {// The assignment can fail if a Content Security Policy heavy-handedly
+  // forbids Function usage. In those environments, developers should take
+  // extra care to replace process.env.NODE_ENV in their production builds,
+  // or define an appropriate global.process polyfill.
+}
+
+var invariant$1 = invariant;
+var _default = invariant$1;
+exports.default = _default;
+},{"tslib":"../node_modules/tslib/tslib.es6.js","process":"../node_modules/process/browser.js"}],"../node_modules/apollo-link/lib/bundle.esm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createOperation = createOperation;
+exports.empty = empty;
+exports.execute = execute;
+exports.from = from;
+exports.fromError = fromError;
+exports.fromPromise = fromPromise;
+exports.split = split;
+exports.toPromise = toPromise;
+Object.defineProperty(exports, "Observable", {
+  enumerable: true,
+  get: function () {
+    return _zenObservableTs.default;
+  }
+});
+Object.defineProperty(exports, "getOperationName", {
+  enumerable: true,
+  get: function () {
+    return _apolloUtilities.getOperationName;
+  }
+});
+exports.makePromise = exports.concat = exports.ApolloLink = void 0;
+
+var _zenObservableTs = _interopRequireDefault(require("zen-observable-ts"));
+
+var _tsInvariant = require("ts-invariant");
+
+var _tslib = require("tslib");
+
+var _apolloUtilities = require("apollo-utilities");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function validateOperation(operation) {
+  var OPERATION_FIELDS = ['query', 'operationName', 'variables', 'extensions', 'context'];
+
+  for (var _i = 0, _a = Object.keys(operation); _i < _a.length; _i++) {
+    var key = _a[_i];
+
+    if (OPERATION_FIELDS.indexOf(key) < 0) {
+      throw "development" === "production" ? new _tsInvariant.InvariantError(2) : new _tsInvariant.InvariantError("illegal argument: " + key);
+    }
+  }
+
+  return operation;
+}
+
+var LinkError = function (_super) {
+  (0, _tslib.__extends)(LinkError, _super);
+
+  function LinkError(message, link) {
+    var _this = _super.call(this, message) || this;
+
+    _this.link = link;
+    return _this;
+  }
+
+  return LinkError;
+}(Error);
+
+function isTerminating(link) {
+  return link.request.length <= 1;
+}
+
+function toPromise(observable) {
+  var completed = false;
+  return new Promise(function (resolve, reject) {
+    observable.subscribe({
+      next: function (data) {
+        if (completed) {
+          "development" === "production" || _tsInvariant.invariant.warn("Promise Wrapper does not support multiple results from Observable");
+        } else {
+          completed = true;
+          resolve(data);
+        }
+      },
+      error: reject
+    });
+  });
+}
+
+var makePromise = toPromise;
+exports.makePromise = makePromise;
+
+function fromPromise(promise) {
+  return new _zenObservableTs.default(function (observer) {
+    promise.then(function (value) {
+      observer.next(value);
+      observer.complete();
+    }).catch(observer.error.bind(observer));
+  });
+}
+
+function fromError(errorValue) {
+  return new _zenObservableTs.default(function (observer) {
+    observer.error(errorValue);
+  });
+}
+
+function transformOperation(operation) {
+  var transformedOperation = {
+    variables: operation.variables || {},
+    extensions: operation.extensions || {},
+    operationName: operation.operationName,
+    query: operation.query
+  };
+
+  if (!transformedOperation.operationName) {
+    transformedOperation.operationName = typeof transformedOperation.query !== 'string' ? (0, _apolloUtilities.getOperationName)(transformedOperation.query) : '';
+  }
+
+  return transformedOperation;
+}
+
+function createOperation(starting, operation) {
+  var context = (0, _tslib.__assign)({}, starting);
+
+  var setContext = function (next) {
+    if (typeof next === 'function') {
+      context = (0, _tslib.__assign)({}, context, next(context));
+    } else {
+      context = (0, _tslib.__assign)({}, context, next);
+    }
+  };
+
+  var getContext = function () {
+    return (0, _tslib.__assign)({}, context);
+  };
+
+  Object.defineProperty(operation, 'setContext', {
+    enumerable: false,
+    value: setContext
+  });
+  Object.defineProperty(operation, 'getContext', {
+    enumerable: false,
+    value: getContext
+  });
+  Object.defineProperty(operation, 'toKey', {
+    enumerable: false,
+    value: function () {
+      return getKey(operation);
+    }
+  });
+  return operation;
+}
+
+function getKey(operation) {
+  var query = operation.query,
+      variables = operation.variables,
+      operationName = operation.operationName;
+  return JSON.stringify([operationName, query, variables]);
+}
+
+function passthrough(op, forward) {
+  return forward ? forward(op) : _zenObservableTs.default.of();
+}
+
+function toLink(handler) {
+  return typeof handler === 'function' ? new ApolloLink(handler) : handler;
+}
+
+function empty() {
+  return new ApolloLink(function () {
+    return _zenObservableTs.default.of();
+  });
+}
+
+function from(links) {
+  if (links.length === 0) return empty();
+  return links.map(toLink).reduce(function (x, y) {
+    return x.concat(y);
+  });
+}
+
+function split(test, left, right) {
+  var leftLink = toLink(left);
+  var rightLink = toLink(right || new ApolloLink(passthrough));
+
+  if (isTerminating(leftLink) && isTerminating(rightLink)) {
+    return new ApolloLink(function (operation) {
+      return test(operation) ? leftLink.request(operation) || _zenObservableTs.default.of() : rightLink.request(operation) || _zenObservableTs.default.of();
+    });
+  } else {
+    return new ApolloLink(function (operation, forward) {
+      return test(operation) ? leftLink.request(operation, forward) || _zenObservableTs.default.of() : rightLink.request(operation, forward) || _zenObservableTs.default.of();
+    });
+  }
+}
+
+var concat = function (first, second) {
+  var firstLink = toLink(first);
+
+  if (isTerminating(firstLink)) {
+    "development" === "production" || _tsInvariant.invariant.warn(new LinkError("You are calling concat on a terminating link, which will have no effect", firstLink));
+    return firstLink;
+  }
+
+  var nextLink = toLink(second);
+
+  if (isTerminating(nextLink)) {
+    return new ApolloLink(function (operation) {
+      return firstLink.request(operation, function (op) {
+        return nextLink.request(op) || _zenObservableTs.default.of();
+      }) || _zenObservableTs.default.of();
+    });
+  } else {
+    return new ApolloLink(function (operation, forward) {
+      return firstLink.request(operation, function (op) {
+        return nextLink.request(op, forward) || _zenObservableTs.default.of();
+      }) || _zenObservableTs.default.of();
+    });
+  }
+};
+
+exports.concat = concat;
+
+var ApolloLink = function () {
+  function ApolloLink(request) {
+    if (request) this.request = request;
+  }
+
+  ApolloLink.prototype.split = function (test, left, right) {
+    return this.concat(split(test, left, right || new ApolloLink(passthrough)));
+  };
+
+  ApolloLink.prototype.concat = function (next) {
+    return concat(this, next);
+  };
+
+  ApolloLink.prototype.request = function (operation, forward) {
+    throw "development" === "production" ? new _tsInvariant.InvariantError(1) : new _tsInvariant.InvariantError('request is not implemented');
+  };
+
+  ApolloLink.empty = empty;
+  ApolloLink.from = from;
+  ApolloLink.split = split;
+  ApolloLink.execute = execute;
+  return ApolloLink;
+}();
+
+exports.ApolloLink = ApolloLink;
+
+function execute(link, operation) {
+  return link.request(createOperation(operation.context, transformOperation(validateOperation(operation)))) || _zenObservableTs.default.of();
+}
+},{"zen-observable-ts":"../node_modules/zen-observable-ts/lib/bundle.esm.js","ts-invariant":"../node_modules/apollo-link/node_modules/ts-invariant/lib/invariant.esm.js","tslib":"../node_modules/tslib/tslib.es6.js","apollo-utilities":"../node_modules/apollo-utilities/lib/bundle.esm.js"}],"../node_modules/apollo-link-context/lib/bundle.esm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setContext = setContext;
+
+var _tslib = require("tslib");
+
+var _apolloLink = require("apollo-link");
+
+function setContext(setter) {
+  return new _apolloLink.ApolloLink(function (operation, forward) {
+    var request = (0, _tslib.__rest)(operation, []);
+    return new _apolloLink.Observable(function (observer) {
+      var handle;
+      Promise.resolve(request).then(function (req) {
+        return setter(req, operation.getContext());
+      }).then(operation.setContext).then(function () {
+        handle = forward(operation).subscribe({
+          next: observer.next.bind(observer),
+          error: observer.error.bind(observer),
+          complete: observer.complete.bind(observer)
+        });
+      }).catch(observer.error.bind(observer));
+      return function () {
+        if (handle) handle.unsubscribe();
+      };
+    });
+  });
+}
+},{"tslib":"../node_modules/tslib/tslib.es6.js","apollo-link":"../node_modules/apollo-link/lib/bundle.esm.js"}],"../node_modules/react-is/cjs/react-is.development.js":[function(require,module,exports) {
 /** @license React v16.13.1
  * react-is.development.js
  *
@@ -71471,7 +71900,9 @@ function createReactContext(defaultValue, calculateChangedBits) {
 
   var contextProp = '__create-react-context-' + getUniqueId() + '__';
 
-  var Provider = /*#__PURE__*/function (_Component) {
+  var Provider =
+  /*#__PURE__*/
+  function (_Component) {
     (0, _inheritsLoose2.default)(Provider, _Component);
 
     function Provider() {
@@ -71523,7 +71954,9 @@ function createReactContext(defaultValue, calculateChangedBits) {
 
   Provider.childContextTypes = (_Provider$childContex = {}, _Provider$childContex[contextProp] = _propTypes.default.object.isRequired, _Provider$childContex);
 
-  var Consumer = /*#__PURE__*/function (_Component2) {
+  var Consumer =
+  /*#__PURE__*/
+  function (_Component2) {
     (0, _inheritsLoose2.default)(Consumer, _Component2);
 
     function Consumer() {
@@ -72116,7 +72549,9 @@ var createNamedContext = function createNamedContext(name) {
   return context;
 };
 
-var historyContext = /*#__PURE__*/createNamedContext("Router-History"); // TODO: Replace with React.createContext once we can assume React 16+
+var historyContext =
+/*#__PURE__*/
+createNamedContext("Router-History"); // TODO: Replace with React.createContext once we can assume React 16+
 
 exports.__HistoryContext = historyContext;
 
@@ -72126,14 +72561,18 @@ var createNamedContext$1 = function createNamedContext(name) {
   return context;
 };
 
-var context = /*#__PURE__*/createNamedContext$1("Router");
+var context =
+/*#__PURE__*/
+createNamedContext$1("Router");
 /**
  * The public API for putting history on context.
  */
 
 exports.__RouterContext = context;
 
-var Router = /*#__PURE__*/function (_React$Component) {
+var Router =
+/*#__PURE__*/
+function (_React$Component) {
   (0, _inheritsLoose2.default)(Router, _React$Component);
 
   Router.computeRootMatch = function computeRootMatch(pathname) {
@@ -72226,7 +72665,9 @@ if ("development" !== "production") {
  */
 
 
-var MemoryRouter = /*#__PURE__*/function (_React$Component) {
+var MemoryRouter =
+/*#__PURE__*/
+function (_React$Component) {
   (0, _inheritsLoose2.default)(MemoryRouter, _React$Component);
 
   function MemoryRouter() {
@@ -72269,7 +72710,9 @@ if ("development" !== "production") {
   };
 }
 
-var Lifecycle = /*#__PURE__*/function (_React$Component) {
+var Lifecycle =
+/*#__PURE__*/
+function (_React$Component) {
   (0, _inheritsLoose2.default)(Lifecycle, _React$Component);
 
   function Lifecycle() {
@@ -72515,7 +72958,9 @@ function evalChildrenDev(children, props, path) {
  */
 
 
-var Route = /*#__PURE__*/function (_React$Component) {
+var Route =
+/*#__PURE__*/
+function (_React$Component) {
   (0, _inheritsLoose2.default)(Route, _React$Component);
 
   function Route() {
@@ -72624,7 +73069,9 @@ function noop() {}
  */
 
 
-var StaticRouter = /*#__PURE__*/function (_React$Component) {
+var StaticRouter =
+/*#__PURE__*/
+function (_React$Component) {
   (0, _inheritsLoose2.default)(StaticRouter, _React$Component);
 
   function StaticRouter() {
@@ -72718,7 +73165,9 @@ if ("development" !== "production") {
  */
 
 
-var Switch = /*#__PURE__*/function (_React$Component) {
+var Switch =
+/*#__PURE__*/
+function (_React$Component) {
   (0, _inheritsLoose2.default)(Switch, _React$Component);
 
   function Switch() {
@@ -72975,7 +73424,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * The public API for a <Router> that uses HTML5 history.
  */
-var BrowserRouter = /*#__PURE__*/function (_React$Component) {
+var BrowserRouter =
+/*#__PURE__*/
+function (_React$Component) {
   (0, _inheritsLoose2.default)(BrowserRouter, _React$Component);
 
   function BrowserRouter() {
@@ -73022,7 +73473,9 @@ if ("development" !== "production") {
  */
 
 
-var HashRouter = /*#__PURE__*/function (_React$Component) {
+var HashRouter =
+/*#__PURE__*/
+function (_React$Component) {
   (0, _inheritsLoose2.default)(HashRouter, _React$Component);
 
   function HashRouter() {
@@ -73272,7 +73725,27 @@ if ("development" !== "production") {
     style: _propTypes.default.object
   });
 }
-},{"react-router":"../node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"../node_modules/react/index.js","history":"../node_modules/history/esm/history.js","prop-types":"../node_modules/prop-types/index.js","tiny-warning":"../node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"../node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"components/Header.js":[function(require,module,exports) {
+},{"react-router":"../node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"../node_modules/react/index.js","history":"../node_modules/history/esm/history.js","prop-types":"../node_modules/prop-types/index.js","tiny-warning":"../node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"../node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"../node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"components/ButtonAsLink.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _templateObject;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var ButtonAsLink = _styledComponents.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  background: none;\n  color: #0077cc;\n  border: none;\n  padding: 0;\n  font: inherit;\n  text-decoration: none;\n  cursor: pointer;\n\n\n  :hover,\n  :active {\n    color: #004499;\n  }\n"])));
+
+var _default = ButtonAsLink;
+exports.default = _default;
+},{"styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/Header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -73281,6 +73754,72 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _client = require("@apollo/client");
+
+var _reactRouterDom = require("react-router-dom");
+
+var _ButtonAsLink = _interopRequireDefault(require("./ButtonAsLink"));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var IS_LOGGED_IN = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    {\n        isLoggedIn @client\n    }\n"])));
+
+var HeaderBar = _styledComponents.default.header(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 1.5em 2em;\n    diplay: flex;\n    height: 64px\n    position: fixed;\n    align-items: center;\n    background-color: #F2F3F4;\n    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);\n    z-index: 1;\n\n"])));
+
+var LogoText = _styledComponents.default.h1(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    margin: 150px;\n    padding: 0;\n    display: inline;\n    color: #7B7D7D;\n"])));
+
+var UserState = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    margin-left: auto;\n"])));
+
+var Header = function Header(props) {
+  // query hook for user logged in state
+  var _useQuery = (0, _client.useQuery)(IS_LOGGED_IN),
+      data = _useQuery.data,
+      client = _useQuery.client;
+
+  return _react.default.createElement(HeaderBar, null, _react.default.createElement(LogoText, null, "Task App"), _react.default.createElement(UserState, null, data.isLoggedIn ? _react.default.createElement(_ButtonAsLink.default, {
+    onClick: function onClick() {
+      // remove the token
+      localStorage.removeItem('token'); // clear the application's cache
+
+      client.resetStore(); // update local state
+
+      client.writeQuery({
+        query: (0, _client.gql)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n                        query Logged {\n                            isLoggedIn\n                        }\n                    "]))),
+        data: {
+          isLoggedIn: false
+        }
+      }); // redirect the user to the homepage
+
+      props.history.push('/');
+    }
+  }, "Logout") : _react.default.createElement("p", null, _react.default.createElement(_reactRouterDom.Link, {
+    to: '/signin'
+  }, "Sign In"), " or", ' ', _react.default.createElement(_reactRouterDom.Link, {
+    to: '/signup'
+  }, "Sign Up"))));
+};
+
+var _default = (0, _reactRouterDom.withRouter)(Header);
+
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","@apollo/client":"../node_modules/@apollo/client/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./ButtonAsLink":"components/ButtonAsLink.js"}],"components/Navigation.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
@@ -73290,65 +73829,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var HeaderBar = _styledComponents.default.header(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 1.5em 2em;\n    diplay: flex;\n    height: 64px\n    position: fixed;\n    align-items: center;\n    background-color: #F2F3F4;\n    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);\n    z-index: 1;\n\n"])));
-
-var LogoText = _styledComponents.default.h1(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    margin: 150px;\n    padding: 0;\n    display: inline;\n    color: #7B7D7D;\n"])));
-
-var Header = function Header() {
-  return /*#__PURE__*/_react.default.createElement(HeaderBar, null, /*#__PURE__*/_react.default.createElement(LogoText, null, "Task List"));
-};
-
-var _default = Header;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/Button.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _styledComponents = _interopRequireDefault(require("styled-components"));
-
-var _templateObject;
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Button = _styledComponents.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral([" \n    display: block;\n    padding: 7px;\n    border: none;\n    border-radius: 5px;\n    font-size: 20px;\n    color: #7B7D7D;\n    background-color: #F2F3F4;\n    cursor: pointer;\n\n    :hover {\n        background-color: #EAEDED;\n    }\n\n    :active {\n        background-color: #E5E8E8;\n    }\n"])));
-
-var _default = Button;
-exports.default = _default;
-},{"styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/Navigation.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _Button = _interopRequireDefault(require("./Button"));
-
-var _styledComponents = _interopRequireDefault(require("styled-components"));
-
-var _templateObject;
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
 var Nav = _styledComponents.default.nav(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    padding: 2em;\n    background: #F2F3F4;\n\n    @media (max-width: 700px) {\n        padding-top: 64px;\n    }\n\n    @media (min-width: 700px) {\n        position: fixed;\n        width: 180px;\n        height: calc(100% - 64px);\n    }\n"])));
 
+var NavList = _styledComponents.default.ul(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    margin: 10px;\n    padding: 10px;\n    list-style: none;\n    line-height: 2;\n\n\n\n    a {\n        text-decoration: none;\n        font-weight: bold;\n        font-size: 1.1em;\n        color: #000000;\n    }\n\n    a:visited {\n        color: #000000;\n    }\n\n    a:hover,\n    a:focus {\n        color: #0077cc;\n    }\n"])));
+
 var Navigation = function Navigation() {
-  return /*#__PURE__*/_react.default.createElement(Nav, null, /*#__PURE__*/_react.default.createElement(_Button.default, null, "+ add"));
+  return _react.default.createElement(Nav, null, _react.default.createElement(NavList, null, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/"
+  }, "Home")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/new"
+  }, "+ new"))));
 };
 
 var _default = Navigation;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Button":"components/Button.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/Layout.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/Layout.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -73376,7 +73871,7 @@ var Main = _styledComponents.default.main(_templateObject2 || (_templateObject2 
 
 var Layout = function Layout(_ref) {
   var children = _ref.children;
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(Wrapper, null, /*#__PURE__*/_react.default.createElement(_Navigation.default, null), /*#__PURE__*/_react.default.createElement(Main, null, children)));
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(Wrapper, null, _react.default.createElement(_Navigation.default, null), _react.default.createElement(Main, null, children)));
 };
 
 var _default = Layout;
@@ -100745,6 +101240,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactMarkdown = _interopRequireDefault(require("react-markdown"));
 
+var _reactRouterDom = require("react-router-dom");
+
 var _dateFns = require("date-fns");
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
@@ -100759,18 +101256,20 @@ var StyledTask = _styledComponents.default.article(_templateObject || (_template
 
 var MetaData = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    @media (min-width: 500px) {\n        display: flex;\n        align-items: top;\n    }\n"])));
 
-var MetaInfo = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    padding-right: 1em;\n"])));
+var MetaInfo = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    padding-right: 1em;\n    padding-left: 0em\n"])));
 
 var Task = function Task(_ref) {
   var task = _ref.task;
-  return /*#__PURE__*/_react.default.createElement(StyledTask, null, /*#__PURE__*/_react.default.createElement(MetaData, null, /*#__PURE__*/_react.default.createElement(MetaInfo, null, /*#__PURE__*/_react.default.createElement("em", null, "by"), " ", task.author.username, " ", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("em", null, "created at"), " ", (0, _dateFns.format)(new Date(task.createdAt), 'MM dd yyyy'), " ", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("em", null, "updated at"), " ", (0, _dateFns.format)(new Date(task.updatedAt), 'MM dd yyyy'))), /*#__PURE__*/_react.default.createElement(_reactMarkdown.default, {
+  return _react.default.createElement(StyledTask, null, _react.default.createElement(MetaData, null, _react.default.createElement(MetaInfo, null, _react.default.createElement("em", null, "by"), " ", task.author.username, " ", _react.default.createElement("br", null), _react.default.createElement("em", null, "created at"), " ", (0, _dateFns.format)(new Date(task.createdAt), 'MM dd yyyy'), " ", _react.default.createElement("br", null), _react.default.createElement("em", null, "updated at"), " ", (0, _dateFns.format)(new Date(task.updatedAt), 'MM dd yyyy'), " ", _react.default.createElement("br", null), _react.default.createElement("em", null, "completed"), " ", String(task.completed), " ", _react.default.createElement("br", null), _react.default.createElement(_reactRouterDom.Link, {
+    to: "/edit/".concat(task.id)
+  }, "Edit"))), _react.default.createElement(_reactMarkdown.default, {
     source: task.content
   }));
 };
 
 var _default = Task;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-markdown":"../node_modules/react-markdown/lib/react-markdown.js","date-fns":"../node_modules/date-fns/esm/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/TaskFeed.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-markdown":"../node_modules/react-markdown/lib/react-markdown.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","date-fns":"../node_modules/date-fns/esm/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/TaskFeed.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -100796,12 +101295,12 @@ var TaskWrapper = _styledComponents.default.div(_templateObject || (_templateObj
 
 var TaskFeed = function TaskFeed(_ref) {
   var tasks = _ref.tasks;
-  return /*#__PURE__*/_react.default.createElement("div", null, tasks.map(function (task) {
-    return /*#__PURE__*/_react.default.createElement(TaskWrapper, {
+  return _react.default.createElement("div", null, tasks.map(function (task) {
+    return _react.default.createElement(TaskWrapper, {
       key: task.id
-    }, /*#__PURE__*/_react.default.createElement(_Task.default, {
+    }, _react.default.createElement(_Task.default, {
       task: task
-    }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    }), _react.default.createElement(_reactRouterDom.Link, {
       to: "task/".concat(task.id)
     }, "Link to Task"));
   }));
@@ -100809,7 +101308,27 @@ var TaskFeed = function TaskFeed(_ref) {
 
 var _default = TaskFeed;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./Task":"components/Task.js"}],"pages/home.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./Task":"components/Task.js"}],"components/Button.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _templateObject;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Button = _styledComponents.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral([" \n    display: block;\n    padding: 7px;\n    border: none;\n    border-radius: 5px;\n    font-size: 20px;\n    color: #7B7D7D;\n    background-color: #F2F3F4;\n    cursor: pointer;\n\n    :hover {\n        background-color: #EAEDED;\n    }\n\n    :active {\n        background-color: #E5E8E8;\n    }\n"])));
+
+var _default = Button;
+exports.default = _default;
+},{"styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"pages/home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -100854,11 +101373,11 @@ var Home = function Home() {
       error = _useQuery.error,
       fetchMore = _useQuery.fetchMore;
 
-  if (loading) return /*#__PURE__*/_react.default.createElement("p", null, "Loading...");
-  if (error) return /*#__PURE__*/_react.default.createElement("p", null, "Error!");
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_TaskFeed.default, {
+  if (loading) return _react.default.createElement("p", null, "Loading...");
+  if (error) return _react.default.createElement("p", null, "Error!");
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_TaskFeed.default, {
     tasks: data.tasks.tasks
-  }), data.tasks.hasNextPage && /*#__PURE__*/_react.default.createElement(_Button.default, {
+  }), data.tasks.hasNextPage && _react.default.createElement(_Button.default, {
     onClick: function onClick() {
       return fetchMore({
         variables: {
@@ -100917,16 +101436,520 @@ var SingleTask = function SingleTask(props) {
       error = _useQuery.error,
       data = _useQuery.data;
 
-  if (loading) return /*#__PURE__*/_react.default.createElement("p", null, "Loading...");
-  if (error) return /*#__PURE__*/_react.default.createElement("p", null, "Task not found");
-  return /*#__PURE__*/_react.default.createElement(_Task.default, {
+  if (loading) return _react.default.createElement("p", null, "Loading...");
+  if (error) return _react.default.createElement("p", null, "Task not found");
+  return _react.default.createElement(_Task.default, {
     task: data.task
   });
 };
 
 var _default = SingleTask;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/Task":"components/Task.js"}],"pages/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/Task":"components/Task.js"}],"components/UserForm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _Button = _interopRequireDefault(require("./Button"));
+
+var _templateObject, _templateObject2;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    background-image: linear-gradient(to bottom right, #242537 ,#C3C3C7);\n    border 1px solid #f5f4f0;\n    max-width: 500px;\n    padding: 1em;\n    margin: 0 auto;\n    \n"])));
+
+var Form = _styledComponents.default.form(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    \n    label,\n    input {\n        display: block;\n        line-height: 2em;\n    }\n    input {\n        width: 100%;\n        margin-bottom: 1em;\n    }\n"])));
+
+var UserForm = function UserForm(props) {
+  var _useState = (0, _react.useState)(),
+      _useState2 = _slicedToArray(_useState, 2),
+      values = _useState2[0],
+      setValues = _useState2[1];
+
+  var onChange = function onChange(event) {
+    setValues(_objectSpread(_objectSpread({}, values), {}, _defineProperty({}, event.target.name, event.target.value)));
+  };
+
+  return _react.default.createElement(Wrapper, null, props.formType === 'signup' ? _react.default.createElement("h2", null, "Sign Up") : _react.default.createElement("h2", null, "Sign In"), _react.default.createElement(Form, {
+    onSubmit: function onSubmit(e) {
+      e.preventDefault();
+      props.action({
+        variables: _objectSpread({}, values)
+      });
+    }
+  }, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("label", {
+    htmlFor: "username"
+  }, "Username:"), _react.default.createElement("input", {
+    required: true,
+    type: "text",
+    id: "username",
+    name: "username",
+    placeholder: "username",
+    onChange: onChange
+  })), _react.default.createElement("label", {
+    htmlFor: "email"
+  }, "Email:"), _react.default.createElement("input", {
+    required: true,
+    type: "email",
+    id: "email",
+    name: "email",
+    placeholder: "Email",
+    onChange: onChange
+  }), _react.default.createElement("label", {
+    htmlFor: "password"
+  }, "Password:"), _react.default.createElement("input", {
+    required: true,
+    type: "password",
+    id: "password",
+    name: "password",
+    placeholder: "Password",
+    onChange: onChange
+  }), _react.default.createElement(_Button.default, {
+    type: "submit"
+  }, "Submit")));
+};
+
+var _default = UserForm;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./Button":"components/Button.js"}],"pages/signup.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _client = require("@apollo/client");
+
+var _UserForm = _interopRequireDefault(require("../components/UserForm"));
+
+var _templateObject, _templateObject2;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var SIGNUP_USER = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    mutation signUp($email: String!, $username: String!, $password: String!){\n        signUp(email: $email, username: $username, password: $password)\n    }\n"])));
+
+var SignUp = function SignUp(props) {
+  (0, _react.useEffect)(function () {
+    document.title = 'Sign Up - Notedly';
+  });
+  var client = (0, _client.useApolloClient)();
+
+  var _useMutation = (0, _client.useMutation)(SIGNUP_USER, {
+    onCompleted: function onCompleted(data) {
+      localStorage.setItem('token', data.signUp);
+      client.writeQuery({
+        query: (0, _client.gql)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n                    query Logged {\n                        isLoggedIn\n                    }\n                "]))),
+        data: {
+          isLoggedIn: true
+        }
+      });
+      props.history.push('/');
+    }
+  }),
+      _useMutation2 = _slicedToArray(_useMutation, 2),
+      signUp = _useMutation2[0],
+      _useMutation2$ = _useMutation2[1],
+      loading = _useMutation2$.loading,
+      error = _useMutation2$.error;
+
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_UserForm.default, {
+    action: signUp,
+    formType: "signup"
+  }), loading && _react.default.createElement("p", null, "Loading..."), error && _react.default.createElement("p", null, "Error creating an account!"));
+};
+
+var _default = SignUp;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/UserForm":"components/UserForm.js"}],"pages/signin.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _client = require("@apollo/client");
+
+var _UserForm = _interopRequireDefault(require("../components/UserForm"));
+
+var _templateObject, _templateObject2;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var SIGNIN_USER = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    mutation signIn($email: String!, $username: String!, $password: String!){\n        signIn(email: $email, username: $username, password: $password)\n    }\n"])));
+
+var SignIn = function SignIn(props) {
+  (0, _react.useEffect)(function () {
+    document.title = 'Sign In - Notedly';
+  });
+  var client = (0, _client.useApolloClient)();
+
+  var _useMutation = (0, _client.useMutation)(SIGNIN_USER, {
+    onCompleted: function onCompleted(data) {
+      localStorage.setItem('token', data.signIn);
+      client.writeQuery({
+        query: (0, _client.gql)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n                    query Logged {\n                        isLoggedIn\n                    }\n                "]))),
+        data: {
+          isLoggedIn: true
+        }
+      });
+      props.history.push('/');
+    }
+  }),
+      _useMutation2 = _slicedToArray(_useMutation, 2),
+      signIn = _useMutation2[0],
+      _useMutation2$ = _useMutation2[1],
+      loading = _useMutation2$.loading,
+      error = _useMutation2$.error;
+
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_UserForm.default, {
+    action: signIn,
+    formType: "signIn"
+  }), loading && _react.default.createElement("p", null, "Loading..."), error && _react.default.createElement("p", null, "Error signin in!"));
+};
+
+var _default = SignIn;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/UserForm":"components/UserForm.js"}],"components/TaskForm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _Button = _interopRequireDefault(require("./Button"));
+
+var _templateObject, _templateObject2, _templateObject3;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 100%\n"])));
+
+var Form = _styledComponents.default.form(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    height: 100%\n"])));
+
+var TextArea = _styledComponents.default.textarea(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 60%\n"])));
+
+var TaskForm = function TaskForm(props) {
+  var _useState = (0, _react.useState)({
+    content: props.content || ''
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      value = _useState2[0],
+      setValue = _useState2[1];
+
+  var onChange = function onChange(event) {
+    setValue(_objectSpread(_objectSpread({}, value), {}, _defineProperty({}, event.target.name, event.target.value)));
+  };
+
+  return _react.default.createElement(Wrapper, null, _react.default.createElement(Form, {
+    onSubmit: function onSubmit(e) {
+      e.preventDefault();
+      props.action({
+        variables: _objectSpread({}, value)
+      });
+    }
+  }, _react.default.createElement(TextArea, {
+    required: true,
+    type: "text",
+    name: "content",
+    placeholder: "Task content",
+    value: value.content,
+    onChange: onChange
+  }), _react.default.createElement(_Button.default, {
+    type: "submit"
+  }, "Save")));
+};
+
+var _default = TaskForm;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./Button":"components/Button.js"}],"gql/query.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.GET_TASK = exports.GET_ME = exports.IS_LOGGED_IN = exports.GET_TASKS = void 0;
+
+var _client = require("@apollo/client");
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var GET_TASKS = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\nquery TaskFeed($cursor: String) {\n    tasks(cursor: $cursor) {\n        cursor\n        hasNextPage\n        tasks {\n            id\n            createdAt\n            updatedAt\n            content\n            completed\n            author {\n                username\n                id\n            }\n        }\n    }\n}\n"])));
+exports.GET_TASKS = GET_TASKS;
+var GET_TASK = (0, _client.gql)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    query task($id:ID!) {\n        task(id: $id) {\n            id\n            createdAt\n            updatedAt\n            content\n            completed\n            author {\n                username\n                id\n            }\n        }\n    }\n"])));
+exports.GET_TASK = GET_TASK;
+var IS_LOGGED_IN = (0, _client.gql)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    {\n        isLoggedIn @client\n    }\n"])));
+exports.IS_LOGGED_IN = IS_LOGGED_IN;
+var GET_ME = (0, _client.gql)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  query me {\n    me {\n      id\n    }\n  }\n"])));
+exports.GET_ME = GET_ME;
+},{"@apollo/client":"../node_modules/@apollo/client/index.js"}],"pages/new.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _client = require("@apollo/client");
+
+var _TaskForm = _interopRequireDefault(require("../components/TaskForm"));
+
+var _query = require("../gql/query");
+
+var _templateObject;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var NEW_TASK = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  mutation newtask ($content: String!, $completed: Boolean) {\n    newTask(content: $content, completed: $completed){\n      id\n      content\n      completed\n      author{\n        id\n        username\n      }\n    }\n  }\n"])));
+
+var NewTask = function NewTask(props) {
+  (0, _react.useEffect)(function () {
+    document.title = 'New Task - Task APP';
+  });
+
+  var _useMutation = (0, _client.useMutation)(NEW_TASK, {
+    refetchQueries: [{
+      query: _query.GET_TASKS
+    }],
+    onCompleted: function onCompleted(data) {
+      props.history.push("task/".concat(data.newTask.id));
+    }
+  }),
+      _useMutation2 = _slicedToArray(_useMutation, 2),
+      data = _useMutation2[0],
+      _useMutation2$ = _useMutation2[1],
+      loading = _useMutation2$.loading,
+      error = _useMutation2$.error;
+
+  return _react.default.createElement(_react.default.Fragment, null, loading && _react.default.createElement("p", null, "Loading..."), error && _react.default.createElement("p", null, "Error saving the note"), _react.default.createElement(_TaskForm.default, {
+    action: data
+  }));
+};
+
+var _default = NewTask;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/TaskForm":"components/TaskForm.js","../gql/query":"gql/query.js"}],"gql/mutation.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.EDIT_TASK = void 0;
+
+var _client = require("@apollo/client");
+
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var EDIT_TASK = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  mutation updatetask ($id: ID!, $content: String!, $completed: Boolean) {\n    updateTask(id: $id, content: $content, completed: $completed){\n      id\n      content\n      completed\n      author{\n        id\n        username\n      }\n    }\n  }\n"])));
+exports.EDIT_TASK = EDIT_TASK;
+},{"@apollo/client":"../node_modules/@apollo/client/index.js"}],"pages/edit.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _client = require("@apollo/client");
+
+var _TaskForm = _interopRequireDefault(require("../components/TaskForm"));
+
+var _query = require("../gql/query");
+
+var _mutation = require("../gql/mutation");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var EditTask = function EditTask(props) {
+  var id = props.match.params.id;
+  console.log(id);
+
+  var _useQuery = (0, _client.useQuery)(_query.GET_TASK, {
+    variables: {
+      id: id
+    }
+  }),
+      loading = _useQuery.loading,
+      error = _useQuery.error,
+      data = _useQuery.data;
+
+  console.log(data);
+
+  var _useQuery2 = (0, _client.useQuery)(_query.GET_ME),
+      userdata = _useQuery2.data;
+
+  console.log(userdata);
+
+  var _useMutation = (0, _client.useMutation)(_mutation.EDIT_TASK, {
+    variables: {
+      id: id
+    },
+    onCompleted: function onCompleted() {
+      props.history.push("/task/".concat(id));
+    }
+  }),
+      _useMutation2 = _slicedToArray(_useMutation, 1),
+      editTask = _useMutation2[0];
+
+  if (loading) return 'Loading...';
+  if (error) return _react.default.createElement("p", null, "Error! Task not found");
+
+  if (userdata.me.id !== data.task.author.id) {
+    return _react.default.createElement("p", null, "You do not have access to edit this task");
+  }
+
+  return _react.default.createElement(_TaskForm.default, {
+    content: data.task.content,
+    action: editTask
+  });
+};
+
+var _default = EditTask;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/TaskForm":"components/TaskForm.js","../gql/query":"gql/query.js","../gql/mutation":"gql/mutation.js"}],"pages/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -100938,28 +101961,87 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
+var _client = require("@apollo/client");
+
 var _Layout = _interopRequireDefault(require("../components/Layout"));
 
 var _home = _interopRequireDefault(require("./home"));
 
 var _singletask = _interopRequireDefault(require("./singletask"));
 
+var _signup = _interopRequireDefault(require("./signup"));
+
+var _signin = _interopRequireDefault(require("./signin"));
+
+var _new = _interopRequireDefault(require("./new"));
+
+var _edit = _interopRequireDefault(require("./edit"));
+
+var _templateObject;
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var IS_LOGGED_IN = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    {\n        isLoggedIn @client\n    }\n"])));
+
 var Pages = function Pages() {
-  return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_Layout.default, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_Layout.default, null, _react.default.createElement(PrivateRoute, {
     exact: true,
     path: "/",
     component: _home.default
-  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  }), _react.default.createElement(_reactRouterDom.Route, {
     path: "/task/:id",
     component: _singletask.default
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    path: "/new",
+    component: _new.default
+  }), _react.default.createElement(PrivateRoute, {
+    path: "/edit/:id",
+    component: _edit.default
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    path: "/signup",
+    component: _signup.default
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    path: "/signin",
+    component: _signin.default
   })));
+};
+
+var PrivateRoute = function PrivateRoute(_ref) {
+  var Component = _ref.component,
+      rest = _objectWithoutProperties(_ref, ["component"]);
+
+  var _useQuery = (0, _client.useQuery)(IS_LOGGED_IN),
+      loading = _useQuery.loading,
+      error = _useQuery.error,
+      data = _useQuery.data;
+
+  if (loading) return _react.default.createElement("p", null, "Loading...");
+  if (error) return _react.default.createElement("p", null, "Error!");
+  return _react.default.createElement(_reactRouterDom.Route, _extends({}, rest, {
+    render: function render(props) {
+      return data.isLoggedIn === true ? _react.default.createElement(Component, props) : _react.default.createElement(Redirect, {
+        to: {
+          pathname: 'signin',
+          state: {
+            from: props.location
+          }
+        }
+      });
+    }
+  }));
 };
 
 var _default = Pages;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/Layout":"components/Layout.js","./home":"pages/home.js","./singletask":"pages/singletask.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/Layout":"components/Layout.js","./home":"pages/home.js","./singletask":"pages/singletask.js","./signup":"pages/signup.js","./signin":"pages/signin.js","./new":"pages/new.js","./edit":"pages/edit.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -100970,29 +102052,61 @@ var _client = require("@apollo/client");
 
 var _apolloCacheInmemory = require("apollo-cache-inmemory");
 
+var _apolloLinkContext = require("apollo-link-context");
+
 var _GlobalStyle = _interopRequireDefault(require("/components/GlobalStyle"));
 
 var _pages = _interopRequireDefault(require("/pages"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var uri = "http://localhost:3000/api";
+var httpLink = (0, _client.createHttpLink)({
+  uri: uri
+});
 var cache = new _apolloCacheInmemory.InMemoryCache();
+var authLink = (0, _apolloLinkContext.setContext)(function (_, _ref) {
+  var headers = _ref.headers;
+  return {
+    headers: _objectSpread(_objectSpread({}, headers), {}, {
+      authorization: localStorage.getItem('token') || ''
+    })
+  };
+});
 var client = new _client.ApolloClient({
-  uri: uri,
+  link: authLink.concat(httpLink),
   cache: cache,
+  resolvers: {},
   connectToDevTools: true
+});
+var data = {
+  isLoggedIn: !!localStorage.getItem('token')
+};
+cache.writeData({
+  data: data
+}); // write the cache data after cache is reset
+
+client.onResetStore(function () {
+  return cache.writeData({
+    data: data
+  });
 });
 
 var App = function App() {
-  return /*#__PURE__*/_react.default.createElement(_client.ApolloProvider, {
+  return _react.default.createElement(_client.ApolloProvider, {
     client: client
-  }, /*#__PURE__*/_react.default.createElement(_GlobalStyle.default, null), /*#__PURE__*/_react.default.createElement(_pages.default, null));
+  }, _react.default.createElement(_GlobalStyle.default, null), _react.default.createElement(_pages.default, null));
 }; //to render our application within the element with an ID of root 
 
 
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","apollo-cache-inmemory":"../node_modules/apollo-cache-inmemory/lib/bundle.esm.js","/components/GlobalStyle":"components/GlobalStyle.js","/pages":"pages/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+_reactDom.default.render(_react.default.createElement(App, null), document.getElementById('root'));
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","apollo-cache-inmemory":"../node_modules/apollo-cache-inmemory/lib/bundle.esm.js","apollo-link-context":"../node_modules/apollo-link-context/lib/bundle.esm.js","/components/GlobalStyle":"components/GlobalStyle.js","/pages":"pages/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -101020,7 +102134,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60615" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64314" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -101051,9 +102165,8 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
         assetsToAccept.forEach(function (v) {
           hmrAcceptRun(v[0], v[1]);
         });
-      } else if (location.reload) {
-        // `location` global exists in a web worker context but lacks `.reload()` function.
-        location.reload();
+      } else {
+        window.location.reload();
       }
     }
 
