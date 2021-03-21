@@ -6,8 +6,16 @@ const TaskWrapper = styled.div`
     max-width: 800px;
     margin: 0 auto;
     margin-bottom: 2em;
-    padding-bottom: 2em;
-    border-bottom: 1px solid #000000;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-bottom: 1px groove #B8B8B9;
+    border-top: 1px groove #B8B8B9;
+    border-left: 1px groove #B8B8B9;
+    border-right: 1px groove #B8B8B9;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom right, #F8F8FC ,#FFFFFF);
 `
 
 const TasksWrapper = styled.div`
@@ -22,8 +30,7 @@ const TaskFeed = ({ tasks }) => {
         <TasksWrapper>
             {tasks.map(task => (
                 <TaskWrapper key={task.id}>
-                    <Task task={task} />
-                    <Link to={`task/${task.id}`}>Link to Task</Link>
+                    <Task task={task} />             
                 </TaskWrapper>
             ))}
         </TasksWrapper>

@@ -18,9 +18,11 @@ const TextArea = styled.textarea`
 
 const TaskForm = props => {
 
-    const [value, setValue] = useState({ content: props.content || '' });
+    const [value, setValue] = useState([{ content: props.content || '' },{ completed: props.completed  }]);
     const onChange = event => {
+        
         setValue({...value, [event.target.name]: event.target.value});
+        
     };
 
     return(
@@ -30,6 +32,16 @@ const TaskForm = props => {
                 props.action({ variables: {...value}})
             }}>
                 <TextArea required type="text" name="content" placeholder="Task content" value={value.content} onChange={onChange} />
+                <div>
+                    <label>Completed</label>
+                    <select name="completed" value={value.completed} placeholder="select" id="completed" onChange={onChange}>   
+                        <option value="null">None</option>
+                        <option value="True">True</option>
+                        <option value="False">False</option>
+
+                    </select>
+                </div>
+
                 <Button type="submit">Save</Button>
             </Form>
         </Wrapper>

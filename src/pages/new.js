@@ -6,7 +6,7 @@ import { GET_TASKS } from '../gql/query'
 
 
 const NEW_TASK = gql`
-  mutation newtask ($content: String!, $completed: Boolean) {
+  mutation newtask ($content: String!, $completed: String) {
     newTask(content: $content, completed: $completed){
       id
       content

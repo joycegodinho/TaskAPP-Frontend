@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useQuery, gql } from '@apollo/client';
 import { Link, withRouter } from 'react-router-dom';
+import { BiCheck, BiCheckboxChecked } from "react-icons/bi";
 
 import ButtonAsLink from './ButtonAsLink';
 
@@ -26,6 +27,7 @@ const HeaderBar = styled.header`
 
 const LogoText = styled.h1`
     margin: 150px;
+    margin-top: 40px;
     padding: 0;
     display: inline;
     color: #7B7D7D;
@@ -41,7 +43,7 @@ const Header = props => {
   
     return (
       <HeaderBar>
-        <LogoText>Task App</LogoText>
+        <LogoText><BiCheck size="2em" />Task App</LogoText>
         {/* If logged in display a log out link, else display sign in options */}
         <UserState>
           {data.isLoggedIn ? (
