@@ -50,6 +50,9 @@ const Navigation = () => {
                     <Link to="/">Home</Link>
                 </li>
                 <li>
+                    <Link to="/todo">To Do</Link>
+                </li>
+                <li>
                     <Link to='/new'>+ new</Link>
                 </li>
             </NavList>

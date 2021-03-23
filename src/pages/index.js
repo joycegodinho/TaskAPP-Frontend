@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import { useQuery, gql } from '@apollo/client'
+import { useQuery, gql } from '@apollo/client';
+import { Redirect } from 'react-router'
 
 import Layout from '../components/Layout'
 
@@ -8,8 +9,9 @@ import Home from './home';
 import SingleTask from './singletask';
 import SignUp from './signup';
 import SignIn from './signin';
-import NewTask from './new'
-import EditTask from './edit'
+import NewTask from './new';
+import EditTask from './edit';
+import ToDo from './todo';
 
 const IS_LOGGED_IN = gql`
     {
@@ -21,12 +23,14 @@ const Pages = () => {
     return (
         <Router>  
             <Layout>
-                <PrivateRoute exact path="/" component={Home} />
+                <Route exact path="/" component={Home} />
+                <PrivateRoute path="/todo" component={ToDo} />
                 <Route path="/task/:id" component={SingleTask} /> 
                 <Route path="/new" component={NewTask} />
                 <PrivateRoute path="/edit/:id" component={EditTask} />
                 <Route path="/signup" component={SignUp} />
                 <Route path="/signin" component={SignIn} />
+                <Redirect from="*" to={"/signin"} />
             </Layout>     
         </Router>
     );

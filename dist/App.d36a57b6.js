@@ -90580,6 +90580,8 @@ var Navigation = function Navigation() {
   return _react.default.createElement(Nav, null, _react.default.createElement(NavList, null, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
     to: "/"
   }, "Home")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/todo"
+  }, "To Do")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
     to: "/new"
   }, "+ new"))));
 };
@@ -117985,7 +117987,7 @@ var _templateObject, _templateObject2;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var EDIT_TASK = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  mutation updatetask ($id: ID!, $content: String!, $completed: Boolean) {\n    updateTask(id: $id, content: $content, completed: $completed){\n      id\n      content\n      completed\n      author{\n        id\n        username\n      }\n    }\n  }\n"])));
+var EDIT_TASK = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  mutation updatetask ($id: ID!, $content: String!, $completed: String) {\n    updateTask(id: $id, content: $content, completed: $completed){\n      id\n      content\n      completed\n      author{\n        id\n        username\n      }\n    }\n  }\n"])));
 exports.EDIT_TASK = EDIT_TASK;
 var DELETE_TASK = (0, _client.gql)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  mutation deleteTask ($id: ID!) {\n    deleteTask(id: $id)\n  }\n"])));
 exports.DELETE_TASK = DELETE_TASK;
@@ -118779,13 +118781,85 @@ var EditTask = function EditTask(props) {
 
   return _react.default.createElement(_TaskForm.default, {
     content: data.task.content,
+    completed: data.task.completed,
     action: editTask
   });
 };
 
 var _default = EditTask;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/TaskForm":"components/TaskForm.js","../gql/query":"gql/query.js","../gql/mutation":"gql/mutation.js"}],"pages/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/TaskForm":"components/TaskForm.js","../gql/query":"gql/query.js","../gql/mutation":"gql/mutation.js"}],"pages/todo.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _client = require("@apollo/client");
+
+var _TaskFeed = _interopRequireDefault(require("../components/TaskFeed"));
+
+var _Button = _interopRequireDefault(require("../components/Button"));
+
+var _templateObject;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var GET_TASKS_TODO = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    query TaskFeedToDo($cursor: String) {\n        tasksToDo(cursor: $cursor) {\n            cursor\n            hasNextPage\n            tasks {\n                id\n                createdAt\n                updatedAt\n                content\n                completed\n                author {\n                    username\n                    id\n                }\n            }\n        }\n    }\n"])));
+
+var ToDo = function ToDo() {
+  var _useQuery = (0, _client.useQuery)(GET_TASKS_TODO),
+      data = _useQuery.data,
+      loading = _useQuery.loading,
+      error = _useQuery.error,
+      fetchMore = _useQuery.fetchMore;
+
+  if (loading) return _react.default.createElement("p", null, "Loading...");
+  if (error) return _react.default.createElement("p", null, "Error!");
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_TaskFeed.default, {
+    tasks: data.tasksToDo.tasks
+  }), data.tasksToDo.hasNextPage && _react.default.createElement(_Button.default, {
+    onClick: function onClick() {
+      return fetchMore({
+        variables: {
+          cursor: data.tasksToDo.cursor
+        },
+        updateQuery: function updateQuery(previusResult, _ref) {
+          var fetchMoreResult = _ref.fetchMoreResult;
+          return {
+            tasksToDo: {
+              cursor: fetchMoreResult.tasksToDo.cursor,
+              hasNextPage: fetchMoreResult.tasksToDo.hasNextPage,
+              tasks: [].concat(_toConsumableArray(previusResult.tasksToDo.tasks), _toConsumableArray(fetchMoreResult.tasksToDo.tasks)),
+              __typename: 'tasks'
+            }
+          };
+        }
+      });
+    }
+  }, "Load more"));
+};
+
+var _default = ToDo;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/TaskFeed":"components/TaskFeed.js","../components/Button":"components/Button.js"}],"pages/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118798,6 +118872,8 @@ var _react = _interopRequireDefault(require("react"));
 var _reactRouterDom = require("react-router-dom");
 
 var _client = require("@apollo/client");
+
+var _reactRouter = require("react-router");
 
 var _Layout = _interopRequireDefault(require("../components/Layout"));
 
@@ -118812,6 +118888,8 @@ var _signin = _interopRequireDefault(require("./signin"));
 var _new = _interopRequireDefault(require("./new"));
 
 var _edit = _interopRequireDefault(require("./edit"));
+
+var _todo = _interopRequireDefault(require("./todo"));
 
 var _templateObject;
 
@@ -118828,10 +118906,13 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var IS_LOGGED_IN = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    {\n        isLoggedIn @client\n    }\n"])));
 
 var Pages = function Pages() {
-  return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_Layout.default, null, _react.default.createElement(PrivateRoute, {
+  return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement(_Layout.default, null, _react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/",
     component: _home.default
+  }), _react.default.createElement(PrivateRoute, {
+    path: "/todo",
+    component: _todo.default
   }), _react.default.createElement(_reactRouterDom.Route, {
     path: "/task/:id",
     component: _singletask.default
@@ -118847,6 +118928,9 @@ var Pages = function Pages() {
   }), _react.default.createElement(_reactRouterDom.Route, {
     path: "/signin",
     component: _signin.default
+  }), _react.default.createElement(_reactRouter.Redirect, {
+    from: "*",
+    to: "/signin"
   })));
 };
 
@@ -118863,7 +118947,7 @@ var PrivateRoute = function PrivateRoute(_ref) {
   if (error) return _react.default.createElement("p", null, "Error!");
   return _react.default.createElement(_reactRouterDom.Route, _extends({}, rest, {
     render: function render(props) {
-      return data.isLoggedIn === true ? _react.default.createElement(Component, props) : _react.default.createElement(Redirect, {
+      return data.isLoggedIn === true ? _react.default.createElement(Component, props) : _react.default.createElement(_reactRouter.Redirect, {
         to: {
           pathname: 'signin',
           state: {
@@ -118877,7 +118961,7 @@ var PrivateRoute = function PrivateRoute(_ref) {
 
 var _default = Pages;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/Layout":"components/Layout.js","./home":"pages/home.js","./singletask":"pages/singletask.js","./signup":"pages/signup.js","./signin":"pages/signin.js","./new":"pages/new.js","./edit":"pages/edit.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","@apollo/client":"../node_modules/@apollo/client/index.js","react-router":"../node_modules/react-router/esm/react-router.js","../components/Layout":"components/Layout.js","./home":"pages/home.js","./singletask":"pages/singletask.js","./signup":"pages/signup.js","./signin":"pages/signin.js","./new":"pages/new.js","./edit":"pages/edit.js","./todo":"pages/todo.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -118970,7 +119054,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57396" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60539" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

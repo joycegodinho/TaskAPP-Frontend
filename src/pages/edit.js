@@ -29,7 +29,7 @@ const EditTask = props => {
     }
 
 
-    return <TaskForm content={data.task.content} action={editTask} />
+    return <TaskForm content={data.task.content} completed={data.task.completed} action={editTask} />
 }
 
 export default EditTask;
