@@ -14,24 +14,37 @@ const StyledTask = styled.article`
 
 `;
 const MetaData = styled.div`
-    @media (min-width: 500px) {
-        display: flex;
-        align-items: top;
-    }
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    
+
+
+
 `;
 const MetaInfo = styled.div`
-    padding-right: 1em;
-    padding-left: 0em
+
+    width: 500px;
+    height: 50px;
+  
 `;
 
 const MetaInfoTime = styled.div`
-    padding-right: 1em;
-    padding-left: 0em
+    width: 500px;
+    height: 50px;  
+    
 `;
-
+const StyledMark = styled.mark`
+    background-color: #8585F3; 
+    
+`;
 const LinkOptions = styled.div`
-    margin-top: 2px;
-    margin-left: 450px
+    width: 500px;
+    height: 50px; 
+    text-align: right;   
+    
 `
 
 
@@ -52,8 +65,11 @@ const Task = ({ task }) => {
                     </React.Fragment>
                 </MetaInfo>
                 <MetaInfoTime>
-                    <em>created at</em> {format(new Date(task.createdAt), 'MM dd yyyy')} <br />
-                    <em>updated at</em> {format(new Date(task.updatedAt), 'MM dd yyyy')}  
+                    <StyledMark>
+                        <em>created at</em> {format(new Date(task.createdAt), 'MM dd yyyy H:mm')} <br />
+                        <em>updated at</em> {format(new Date(task.updatedAt), 'MM dd yyyy H:mm')}                         
+                    </StyledMark>
+
                 </MetaInfoTime>
                 <LinkOptions>
                     <DeleteTask taskId={task.id} /> <br />

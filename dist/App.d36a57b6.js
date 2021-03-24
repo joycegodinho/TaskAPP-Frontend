@@ -117997,11 +117997,11 @@ exports.DELETE_TASK = DELETE_TASK;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.GET_TASK = exports.GET_ME = exports.IS_LOGGED_IN = exports.GET_TASKS = void 0;
+exports.GET_TASKS_TODO = exports.GET_TASK = exports.GET_ME = exports.IS_LOGGED_IN = exports.GET_TASKS = void 0;
 
 var _client = require("@apollo/client");
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -118013,6 +118013,8 @@ var IS_LOGGED_IN = (0, _client.gql)(_templateObject3 || (_templateObject3 = _tag
 exports.IS_LOGGED_IN = IS_LOGGED_IN;
 var GET_ME = (0, _client.gql)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  query me {\n    me {\n      id\n    }\n  }\n"])));
 exports.GET_ME = GET_ME;
+var GET_TASKS_TODO = (0, _client.gql)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    query TaskFeedToDo($cursor: String) {\n        tasksToDo(cursor: $cursor) {\n            cursor\n            hasNextPage\n            tasks {\n                id\n                createdAt\n                updatedAt\n                content\n                completed\n                author {\n                    username\n                    id\n                }\n            }\n        }\n    }\n"])));
+exports.GET_TASKS_TODO = GET_TASKS_TODO;
 },{"@apollo/client":"../node_modules/@apollo/client/index.js"}],"components/DeleteTask.js":[function(require,module,exports) {
 "use strict";
 
@@ -118098,7 +118100,7 @@ var _bi = require("react-icons/bi");
 
 var _DeleteTask = _interopRequireDefault(require("./DeleteTask"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118106,17 +118108,19 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var StyledTask = _styledComponents.default.article(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n    color: #000000;\n\n"])));
 
-var MetaData = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    @media (min-width: 500px) {\n        display: flex;\n        align-items: top;\n    }\n"])));
+var MetaData = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    width: 100%;\n    \n\n\n\n"])));
 
-var MetaInfo = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    padding-right: 1em;\n    padding-left: 0em\n"])));
+var MetaInfo = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n\n    width: 500px;\n    height: 50px;\n  \n"])));
 
-var MetaInfoTime = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    padding-right: 1em;\n    padding-left: 0em\n"])));
+var MetaInfoTime = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 50px;  \n    \n"])));
 
-var LinkOptions = _styledComponents.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    margin-top: 2px;\n    margin-left: 450px\n"])));
+var StyledMark = _styledComponents.default.mark(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    background-color: #8585F3; \n    \n"])));
+
+var LinkOptions = _styledComponents.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 50px; \n    text-align: right;   \n    \n"])));
 
 var Task = function Task(_ref) {
   var task = _ref.task;
-  return _react.default.createElement(StyledTask, null, _react.default.createElement(MetaData, null, _react.default.createElement(MetaInfo, null, _react.default.createElement("em", null, "by"), " ", task.author.username, " ", _react.default.createElement("br", null), _react.default.createElement(_react.default.Fragment, null, task.completed && _react.default.createElement("p", null, _react.default.createElement("em", null, "completed"), " ", task.completed))), _react.default.createElement(MetaInfoTime, null, _react.default.createElement("em", null, "created at"), " ", (0, _dateFns.format)(new Date(task.createdAt), 'MM dd yyyy'), " ", _react.default.createElement("br", null), _react.default.createElement("em", null, "updated at"), " ", (0, _dateFns.format)(new Date(task.updatedAt), 'MM dd yyyy')), _react.default.createElement(LinkOptions, null, _react.default.createElement(_DeleteTask.default, {
+  return _react.default.createElement(StyledTask, null, _react.default.createElement(MetaData, null, _react.default.createElement(MetaInfo, null, _react.default.createElement("em", null, "by"), " ", task.author.username, " ", _react.default.createElement("br", null), _react.default.createElement(_react.default.Fragment, null, task.completed && _react.default.createElement("p", null, _react.default.createElement("em", null, "completed"), " ", task.completed))), _react.default.createElement(MetaInfoTime, null, _react.default.createElement(StyledMark, null, _react.default.createElement("em", null, "created at"), " ", (0, _dateFns.format)(new Date(task.createdAt), 'MM dd yyyy H:mm'), " ", _react.default.createElement("br", null), _react.default.createElement("em", null, "updated at"), " ", (0, _dateFns.format)(new Date(task.updatedAt), 'MM dd yyyy H:mm'))), _react.default.createElement(LinkOptions, null, _react.default.createElement(_DeleteTask.default, {
     taskId: task.id
   }), " ", _react.default.createElement("br", null), _react.default.createElement(_reactRouterDom.Link, {
     to: "/edit/".concat(task.id)
@@ -118765,6 +118769,9 @@ var EditTask = function EditTask(props) {
     variables: {
       id: id
     },
+    refetchQueries: [{
+      query: _query.GET_TASKS_TODO
+    }],
     onCompleted: function onCompleted() {
       props.history.push("/task/".concat(id));
     }
@@ -119054,7 +119061,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60539" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63375" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

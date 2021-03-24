@@ -50,4 +50,24 @@ const GET_ME = gql`
   }
 `;
 
-export { GET_TASKS, IS_LOGGED_IN, GET_ME, GET_TASK }
+const GET_TASKS_TODO = gql`
+    query TaskFeedToDo($cursor: String) {
+        tasksToDo(cursor: $cursor) {
+            cursor
+            hasNextPage
+            tasks {
+                id
+                createdAt
+                updatedAt
+                content
+                completed
+                author {
+                    username
+                    id
+                }
+            }
+        }
+    }
+`;
+
+export { GET_TASKS, IS_LOGGED_IN, GET_ME, GET_TASK, GET_TASKS_TODO }
