@@ -12,6 +12,7 @@ import SignIn from './signin';
 import NewTask from './new';
 import EditTask from './edit';
 import ToDo from './todo';
+import Done from './done';
 
 const IS_LOGGED_IN = gql`
     {
@@ -25,6 +26,7 @@ const Pages = () => {
             <Layout>
                 <Route exact path="/" component={Home} />
                 <PrivateRoute path="/todo" component={ToDo} />
+                <PrivateRoute path="/done" component={Done} />
                 <Route path="/task/:id" component={SingleTask} /> 
                 <Route path="/new" component={NewTask} />
                 <PrivateRoute path="/edit/:id" component={EditTask} />

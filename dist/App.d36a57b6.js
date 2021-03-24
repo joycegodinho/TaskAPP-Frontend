@@ -90579,9 +90579,11 @@ var NavList = _styledComponents.default.ul(_templateObject2 || (_templateObject2
 var Navigation = function Navigation() {
   return _react.default.createElement(Nav, null, _react.default.createElement(NavList, null, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
     to: "/"
-  }, "Home")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+  }, "All Tasks")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
     to: "/todo"
   }, "To Do")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/done"
+  }, "Done")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
     to: "/new"
   }, "+ new"))));
 };
@@ -117997,11 +117999,11 @@ exports.DELETE_TASK = DELETE_TASK;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.GET_TASKS_TODO = exports.GET_TASK = exports.GET_ME = exports.IS_LOGGED_IN = exports.GET_TASKS = void 0;
+exports.GET_TASKS_DONE = exports.GET_TASKS_TODO = exports.GET_TASK = exports.GET_ME = exports.IS_LOGGED_IN = exports.GET_TASKS = void 0;
 
 var _client = require("@apollo/client");
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -118015,6 +118017,8 @@ var GET_ME = (0, _client.gql)(_templateObject4 || (_templateObject4 = _taggedTem
 exports.GET_ME = GET_ME;
 var GET_TASKS_TODO = (0, _client.gql)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    query TaskFeedToDo($cursor: String) {\n        tasksToDo(cursor: $cursor) {\n            cursor\n            hasNextPage\n            tasks {\n                id\n                createdAt\n                updatedAt\n                content\n                completed\n                author {\n                    username\n                    id\n                }\n            }\n        }\n    }\n"])));
 exports.GET_TASKS_TODO = GET_TASKS_TODO;
+var GET_TASKS_DONE = (0, _client.gql)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    query TaskFeedDone($cursor: String) {\n        tasksDone(cursor: $cursor) {\n            cursor\n            hasNextPage\n            tasks {\n                id\n                createdAt\n                updatedAt\n                content\n                completed\n                author {\n                    username\n                    id\n                }\n            }\n        }\n    }\n"])));
+exports.GET_TASKS_DONE = GET_TASKS_DONE;
 },{"@apollo/client":"../node_modules/@apollo/client/index.js"}],"components/DeleteTask.js":[function(require,module,exports) {
 "use strict";
 
@@ -118100,7 +118104,7 @@ var _bi = require("react-icons/bi");
 
 var _DeleteTask = _interopRequireDefault(require("./DeleteTask"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118114,13 +118118,15 @@ var MetaInfo = _styledComponents.default.div(_templateObject3 || (_templateObjec
 
 var MetaInfoTime = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 50px;  \n    \n"])));
 
-var StyledMark = _styledComponents.default.mark(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    background-color: #8585F3; \n    \n"])));
+var StyledMark = _styledComponents.default.mark(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    background-color: #8585F3; \n    border-radius: 0.8em 0.3em;\n    \n"])));
 
-var LinkOptions = _styledComponents.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 50px; \n    text-align: right;   \n    \n"])));
+var StyledMarkUpdated = _styledComponents.default.mark(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    background-color: #E74F31; \n    border-radius: 0.8em 0.3em;\n    \n    \n"])));
+
+var LinkOptions = _styledComponents.default.div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 50px; \n    text-align: right;   \n    \n"])));
 
 var Task = function Task(_ref) {
   var task = _ref.task;
-  return _react.default.createElement(StyledTask, null, _react.default.createElement(MetaData, null, _react.default.createElement(MetaInfo, null, _react.default.createElement("em", null, "by"), " ", task.author.username, " ", _react.default.createElement("br", null), _react.default.createElement(_react.default.Fragment, null, task.completed && _react.default.createElement("p", null, _react.default.createElement("em", null, "completed"), " ", task.completed))), _react.default.createElement(MetaInfoTime, null, _react.default.createElement(StyledMark, null, _react.default.createElement("em", null, "created at"), " ", (0, _dateFns.format)(new Date(task.createdAt), 'MM dd yyyy H:mm'), " ", _react.default.createElement("br", null), _react.default.createElement("em", null, "updated at"), " ", (0, _dateFns.format)(new Date(task.updatedAt), 'MM dd yyyy H:mm'))), _react.default.createElement(LinkOptions, null, _react.default.createElement(_DeleteTask.default, {
+  return _react.default.createElement(StyledTask, null, _react.default.createElement(MetaData, null, _react.default.createElement(MetaInfo, null, _react.default.createElement("em", null, "by"), " ", task.author.username, " ", _react.default.createElement("br", null), _react.default.createElement(_react.default.Fragment, null, task.completed && _react.default.createElement("p", null, _react.default.createElement("em", null, "completed"), " ", task.completed))), _react.default.createElement(MetaInfoTime, null, _react.default.createElement(StyledMark, null, _react.default.createElement("em", null, "created at"), " ", (0, _dateFns.format)(new Date(task.createdAt), 'MM dd yyyy H:mm'), " ", _react.default.createElement("br", null)), _react.default.createElement(StyledMarkUpdated, null, _react.default.createElement("em", null, "updated at"), " ", (0, _dateFns.format)(new Date(task.updatedAt), 'MM dd yyyy H:mm'))), _react.default.createElement(LinkOptions, null, _react.default.createElement(_DeleteTask.default, {
     taskId: task.id
   }), " ", _react.default.createElement("br", null), _react.default.createElement(_reactRouterDom.Link, {
     to: "/edit/".concat(task.id)
@@ -118159,7 +118165,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var TaskWrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n    margin-bottom: 2em;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    padding-left: 1em;\n    padding-right: 1em;\n    border-bottom: 1px groove #B8B8B9;\n    border-top: 1px groove #B8B8B9;\n    border-left: 1px groove #B8B8B9;\n    border-right: 1px groove #B8B8B9;\n    border-radius: 10px;\n    background-image: linear-gradient(to bottom right, #F8F8FC ,#FFFFFF);\n"])));
+//background-image: linear-gradient(to bottom right, #F8F8FC ,#FFFFFF);
+var getBackgroundColor = function getBackgroundColor() {
+  var colors = ["green", "yellow", "red", "blue", "orange", "pink", "cyan"];
+  var len = colors.length;
+  var randomNum = Math.floor(Math.random() * len);
+  var color = colors[randomNum];
+  colors.splice(randomNum, 1);
+  return color;
+};
+
+var TaskWrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n    margin-bottom: 2em;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    padding-left: 1em;\n    padding-right: 1em;\n    border-bottom: 1px groove #B8B8B9;\n    border-top: 1px groove #B8B8B9;\n    border-left: 1px groove #B8B8B9;\n    border-right: 1px groove #B8B8B9;\n    border-radius: 10px;\n    background-color: ", ";\n    \n"])), getBackgroundColor);
 
 var TasksWrapper = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    padding-bottom: 5em;\n"])));
 
@@ -118667,6 +118683,8 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -118684,14 +118702,16 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var NEW_TASK = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  mutation newtask ($content: String!, $completed: String) {\n    newTask(content: $content, completed: $completed){\n      id\n      content\n      completed\n      author{\n        id\n        username\n      }\n    }\n  }\n"])));
 
 var NewTask = function NewTask(props) {
+  var _ref;
+
   (0, _react.useEffect)(function () {
     document.title = 'New Task - Task APP';
   });
 
   var _useMutation = (0, _client.useMutation)(NEW_TASK, {
-    refetchQueries: [{
+    refetchQueries: [(_ref = {
       query: _query.GET_TASKS
-    }],
+    }, _defineProperty(_ref, "query", _query.GET_TASKS_TODO), _defineProperty(_ref, "query", _query.GET_TASKS_DONE), _ref)],
     onCompleted: function onCompleted(data) {
       props.history.push("task/".concat(data.newTask.id));
     }
@@ -118733,6 +118753,8 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -118769,9 +118791,9 @@ var EditTask = function EditTask(props) {
     variables: {
       id: id
     },
-    refetchQueries: [{
+    refetchQueries: [_defineProperty({
       query: _query.GET_TASKS_TODO
-    }],
+    }, "query", _query.GET_TASKS_DONE)],
     onCompleted: function onCompleted() {
       props.history.push("/task/".concat(id));
     }
@@ -118866,6 +118888,77 @@ var ToDo = function ToDo() {
 
 var _default = ToDo;
 exports.default = _default;
+},{"react":"../node_modules/react/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/TaskFeed":"components/TaskFeed.js","../components/Button":"components/Button.js"}],"pages/done.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _client = require("@apollo/client");
+
+var _TaskFeed = _interopRequireDefault(require("../components/TaskFeed"));
+
+var _Button = _interopRequireDefault(require("../components/Button"));
+
+var _templateObject;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var GET_TASKS_DONE = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    query TaskFeedDone($cursor: String) {\n        tasksDone(cursor: $cursor) {\n            cursor\n            hasNextPage\n            tasks {\n                id\n                createdAt\n                updatedAt\n                content\n                completed\n                author {\n                    username\n                    id\n                }\n            }\n        }\n    }\n"])));
+
+var Done = function Done() {
+  var _useQuery = (0, _client.useQuery)(GET_TASKS_DONE),
+      data = _useQuery.data,
+      loading = _useQuery.loading,
+      error = _useQuery.error,
+      fetchMore = _useQuery.fetchMore;
+
+  if (loading) return _react.default.createElement("p", null, "Loading...");
+  if (error) return _react.default.createElement("p", null, "Error!");
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_TaskFeed.default, {
+    tasks: data.tasksDone.tasks
+  }), data.tasksDone.hasNextPage && _react.default.createElement(_Button.default, {
+    onClick: function onClick() {
+      return fetchMore({
+        variables: {
+          cursor: data.tasksDone.cursor
+        },
+        updateQuery: function updateQuery(previusResult, _ref) {
+          var fetchMoreResult = _ref.fetchMoreResult;
+          return {
+            tasksDone: {
+              cursor: fetchMoreResult.tasksDone.cursor,
+              hasNextPage: fetchMoreResult.tasksDone.hasNextPage,
+              tasks: [].concat(_toConsumableArray(previusResult.tasksDone.tasks), _toConsumableArray(fetchMoreResult.tasksDone.tasks)),
+              __typename: 'tasks'
+            }
+          };
+        }
+      });
+    }
+  }, "Load more"));
+};
+
+var _default = Done;
+exports.default = _default;
 },{"react":"../node_modules/react/index.js","@apollo/client":"../node_modules/@apollo/client/index.js","../components/TaskFeed":"components/TaskFeed.js","../components/Button":"components/Button.js"}],"pages/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -118898,6 +118991,8 @@ var _edit = _interopRequireDefault(require("./edit"));
 
 var _todo = _interopRequireDefault(require("./todo"));
 
+var _done = _interopRequireDefault(require("./done"));
+
 var _templateObject;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -118920,6 +119015,9 @@ var Pages = function Pages() {
   }), _react.default.createElement(PrivateRoute, {
     path: "/todo",
     component: _todo.default
+  }), _react.default.createElement(PrivateRoute, {
+    path: "/done",
+    component: _done.default
   }), _react.default.createElement(_reactRouterDom.Route, {
     path: "/task/:id",
     component: _singletask.default
@@ -118968,7 +119066,7 @@ var PrivateRoute = function PrivateRoute(_ref) {
 
 var _default = Pages;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","@apollo/client":"../node_modules/@apollo/client/index.js","react-router":"../node_modules/react-router/esm/react-router.js","../components/Layout":"components/Layout.js","./home":"pages/home.js","./singletask":"pages/singletask.js","./signup":"pages/signup.js","./signin":"pages/signin.js","./new":"pages/new.js","./edit":"pages/edit.js","./todo":"pages/todo.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","@apollo/client":"../node_modules/@apollo/client/index.js","react-router":"../node_modules/react-router/esm/react-router.js","../components/Layout":"components/Layout.js","./home":"pages/home.js","./singletask":"pages/singletask.js","./signup":"pages/signup.js","./signin":"pages/signin.js","./new":"pages/new.js","./edit":"pages/edit.js","./todo":"pages/todo.js","./done":"pages/done.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -119061,7 +119159,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63375" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52649" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

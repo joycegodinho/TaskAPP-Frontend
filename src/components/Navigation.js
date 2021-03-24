@@ -47,10 +47,13 @@ const Navigation = () => {
         <Nav>
             <NavList>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">All Tasks</Link>
                 </li>
                 <li>
                     <Link to="/todo">To Do</Link>
+                </li>
+                <li>
+                    <Link to="/done">Done</Link>
                 </li>
                 <li>
                     <Link to='/new'>+ new</Link>

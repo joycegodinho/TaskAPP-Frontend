@@ -2,6 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+//background-image: linear-gradient(to bottom right, #F8F8FC ,#FFFFFF);
+
+const getBackgroundColor = () => {
+    var colors = ["green","yellow","red","blue","orange","pink","cyan"];
+    var len = colors.length;
+    var randomNum = Math.floor(Math.random()*len);
+    var color = colors[randomNum];
+    colors.splice(randomNum, 1);
+    return color;
+
+}
+
 const TaskWrapper = styled.div`
     max-width: 800px;
     margin: 0 auto;
@@ -15,7 +27,8 @@ const TaskWrapper = styled.div`
     border-left: 1px groove #B8B8B9;
     border-right: 1px groove #B8B8B9;
     border-radius: 10px;
-    background-image: linear-gradient(to bottom right, #F8F8FC ,#FFFFFF);
+    background-color: ${getBackgroundColor};
+    
 `
 
 const TasksWrapper = styled.div`

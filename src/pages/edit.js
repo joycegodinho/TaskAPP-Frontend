@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 
 import TaskForm from '../components/TaskForm';
-import { GET_TASK, GET_ME, GET_TASKS_TODO } from '../gql/query';
+import { GET_TASK, GET_ME, GET_TASKS_TODO, GET_TASKS_DONE } from '../gql/query';
 import { EDIT_TASK } from '../gql/mutation';
 
 const EditTask = props => {
@@ -16,7 +16,7 @@ const EditTask = props => {
     const { data: userdata } = useQuery(GET_ME);
     console.log(userdata)
     const [editTask] = useMutation(EDIT_TASK, { variables: { id },
-        refetchQueries: [{ query: GET_TASKS_TODO }],
+        refetchQueries: [{ query: GET_TASKS_TODO, query: GET_TASKS_DONE }],
         onCompleted: () => {
             props.history.push(`/task/${id}`)
         }

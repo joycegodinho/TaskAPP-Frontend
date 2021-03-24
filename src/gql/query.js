@@ -70,4 +70,24 @@ const GET_TASKS_TODO = gql`
     }
 `;
 
-export { GET_TASKS, IS_LOGGED_IN, GET_ME, GET_TASK, GET_TASKS_TODO }
+const GET_TASKS_DONE = gql`
+    query TaskFeedDone($cursor: String) {
+        tasksDone(cursor: $cursor) {
+            cursor
+            hasNextPage
+            tasks {
+                id
+                createdAt
+                updatedAt
+                content
+                completed
+                author {
+                    username
+                    id
+                }
+            }
+        }
+    }
+`;
+
+export { GET_TASKS, IS_LOGGED_IN, GET_ME, GET_TASK, GET_TASKS_TODO, GET_TASKS_DONE }

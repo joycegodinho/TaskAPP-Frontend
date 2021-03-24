@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useMutation, gql } from '@apollo/client'
 
 import TaskForm from '../components/TaskForm';
-import { GET_TASKS } from '../gql/query'
+import { GET_TASKS, GET_TASKS_TODO, GET_TASKS_DONE } from '../gql/query'
 
 
 const NEW_TASK = gql`
@@ -22,7 +22,7 @@ const NEW_TASK = gql`
 const NewTask = props => {
     useEffect(() => { document.title = 'New Task - Task APP'})
     const [data, { loading, error }] = useMutation(NEW_TASK, {
-      refetchQueries: [{ query: GET_TASKS}],
+      refetchQueries: [{ query: GET_TASKS, query: GET_TASKS_TODO, query: GET_TASKS_DONE }],
       onCompleted: data => {props.history.push(`task/${data.newTask.id}`)}
     });
     return (

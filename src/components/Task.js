@@ -38,6 +38,14 @@ const MetaInfoTime = styled.div`
 `;
 const StyledMark = styled.mark`
     background-color: #8585F3; 
+    border-radius: 0.8em 0.3em;
+    
+`;
+
+const StyledMarkUpdated = styled.mark`
+    background-color: #E74F31; 
+    border-radius: 0.8em 0.3em;
+    
     
 `;
 const LinkOptions = styled.div`
@@ -66,9 +74,11 @@ const Task = ({ task }) => {
                 </MetaInfo>
                 <MetaInfoTime>
                     <StyledMark>
-                        <em>created at</em> {format(new Date(task.createdAt), 'MM dd yyyy H:mm')} <br />
-                        <em>updated at</em> {format(new Date(task.updatedAt), 'MM dd yyyy H:mm')}                         
+                        <em>created at</em> {format(new Date(task.createdAt), 'MM dd yyyy H:mm')} <br />                                  
                     </StyledMark>
+                    <StyledMarkUpdated>
+                        <em>updated at</em> {format(new Date(task.updatedAt), 'MM dd yyyy H:mm')}
+                    </StyledMarkUpdated>
 
                 </MetaInfoTime>
                 <LinkOptions>
