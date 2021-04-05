@@ -19,7 +19,7 @@ const HeaderBar = styled.header`
     height: 64px
     position: fixed;
     align-items: center;
-    background-color: #F2F3F4;
+    background-color: #FFFAFD;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
     z-index: 1;
 
@@ -30,7 +30,14 @@ const LogoText = styled.h1`
     margin-top: 40px;
     padding: 0;
     display: inline;
-    color: #7B7D7D;
+    color: #000000;
+`;
+
+const LogText = styled.p`
+    margin: 150px;
+    margin-top: 40px;
+    padding: 0;
+    display: inline;
 `;
 
 const UserState = styled.div`
@@ -43,7 +50,7 @@ const Header = props => {
   
     return (
       <HeaderBar>
-        <LogoText><BiCheck size="2em" />Task App</LogoText>
+        <LogoText>Task<BiCheck size="2em" /></LogoText>
         {/* If logged in display a log out link, else display sign in options */}
         <UserState>
           {data.isLoggedIn ? (
@@ -68,10 +75,10 @@ const Header = props => {
               Logout
             </ButtonAsLink>
           ) : (
-            <p>
+            <LogText>
               <Link to={'/signin'}>Sign In</Link> or{' '}
               <Link to={'/signup'}>Sign Up</Link>
-            </p>
+            </LogText>
           )}
         </UserState>
       </HeaderBar>

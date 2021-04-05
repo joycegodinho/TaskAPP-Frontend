@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 //background-image: linear-gradient(to bottom right, #F8F8FC ,#FFFFFF);
 
 const getBackgroundColor = () => {
-    var colors = ["green","yellow","red","blue","orange","pink","cyan"];
+    var colors = ["#FFE1B0","#FDE8C6","#FFF3DF","#FEF898","#FEFABD","#FDFBD3","#CBFEFA","#DEFEFB","#EEFFFE", "#FEC7E4", "#FEDEEF", "#FFEAF5"];
     var len = colors.length;
     var randomNum = Math.floor(Math.random()*len);
     var color = colors[randomNum];
@@ -22,10 +22,7 @@ const TaskWrapper = styled.div`
     padding-bottom: 1em;
     padding-left: 1em;
     padding-right: 1em;
-    border-bottom: 1px groove #B8B8B9;
-    border-top: 1px groove #B8B8B9;
-    border-left: 1px groove #B8B8B9;
-    border-right: 1px groove #B8B8B9;
+
     border-radius: 10px;
     background-color: ${getBackgroundColor};
     

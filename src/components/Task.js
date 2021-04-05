@@ -37,17 +37,24 @@ const MetaInfoTime = styled.div`
     
 `;
 const StyledMark = styled.mark`
-    background-color: #8585F3; 
+    background-color: #FDFF70; 
     border-radius: 0.8em 0.3em;
     
 `;
 
 const StyledMarkUpdated = styled.mark`
-    background-color: #E74F31; 
+    background-color: #FCC370; 
     border-radius: 0.8em 0.3em;
     
     
 `;
+const StyledMarkCompleted = styled.mark`
+    background-color: #FD8FCB; 
+    border-radius: 0.4em 0.2em;
+    
+    
+`;
+
 const LinkOptions = styled.div`
     width: 500px;
     height: 50px; 
@@ -66,18 +73,23 @@ const Task = ({ task }) => {
                     <React.Fragment> 
                         {task.completed && 
                             <p>
-                                <em>completed</em> {task.completed}
+                                <em>completed </em>
+                                <StyledMarkCompleted>
+                                    {task.completed}
+                                </StyledMarkCompleted>
                             </p>
                             
                         }
                     </React.Fragment>
                 </MetaInfo>
                 <MetaInfoTime>
+                    <em>created at </em> 
                     <StyledMark>
-                        <em>created at</em> {format(new Date(task.createdAt), 'MM dd yyyy H:mm')} <br />                                  
+                        {format(new Date(task.createdAt), 'MM dd yyyy H:mm')} <br />                                  
                     </StyledMark>
+                    <em>updated at </em> 
                     <StyledMarkUpdated>
-                        <em>updated at</em> {format(new Date(task.updatedAt), 'MM dd yyyy H:mm')}
+                        {format(new Date(task.updatedAt), 'MM dd yyyy H:mm')}
                     </StyledMarkUpdated>
 
                 </MetaInfoTime>

@@ -12,9 +12,18 @@ const Form = styled.form`
 `;
 
 const TextArea = styled.textarea`
-    width: 100%;
-    height: 60%
+    width: 60%;
+    height: 60%;
+    margin-bottom: 15px;
 `;
+
+const Status = styled.div`
+    margin-bottom: 15px;
+`
+
+const Select = styled.select`
+    border-radius: 0.3em;
+`
 
 const TaskForm = props => {
 
@@ -32,15 +41,15 @@ const TaskForm = props => {
                 props.action({ variables: {...value}})
             }}>
                 <TextArea required type="text" name="content" placeholder="Task content" value={value.content} onChange={onChange} />
-                <div>
-                    <label>Completed</label>
-                    <select name="completed" value={value.completed} placeholder="select" id="completed" onChange={onChange}>   
+                <Status>
+                    <label>Completed </label>
+                    <Select name="completed" value={value.completed} placeholder="select" id="completed" onChange={onChange}>   
                         <option value="null">None</option>
                         <option value="True">True</option>
                         <option value="False">False</option>
 
-                    </select>
-                </div>
+                    </Select>
+                </Status>
 
                 <Button type="submit">Save</Button>
             </Form>

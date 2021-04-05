@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Button from './Button';
 
 const Wrapper = styled.div`
-    background-image: linear-gradient(to bottom right, #242537 ,#C3C3C7);
+    background-image: linear-gradient(to bottom right, #FFFAFD ,#FFFFFF);
     border 1px solid #f5f4f0;
     max-width: 500px;
     padding: 1em;
@@ -40,12 +40,13 @@ const UserForm = props => {
                 props.action({variables: {...values}})
             }}>
         
+                {props.formType === 'signup' && (
                     <React.Fragment>
 
                         <label htmlFor="username">Username:</label>
                         <input required type="text" id="username" name="username" placeholder="username" onChange={onChange}/>
                     </React.Fragment>
-               
+                )}
                 <label htmlFor="email">Email:</label>
                 <input required type="email" id="email" name="email" placeholder="Email" onChange={onChange}/>
                         

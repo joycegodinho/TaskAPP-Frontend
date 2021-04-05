@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Nav = styled.nav`
     padding: 2em;
-    background: #F2F3F4;
+    background: #FFFAFD;
 
     @media (max-width: 700px) {
         padding-top: 64px;
@@ -41,6 +41,11 @@ const NavList = styled.ul`
         color: #0077cc;
     }
 `;
+const StyledMark = styled.mark`
+    background-color: #BFD2FF; 
+    border-radius: 0.2em 0.2em;
+    
+`;
 
 const Navigation = () => {
     return(
@@ -56,7 +61,10 @@ const Navigation = () => {
                     <Link to="/done">Done</Link>
                 </li>
                 <li>
-                    <Link to='/new'>+ new</Link>
+                    <StyledMark>
+                        <Link to='/new'>+ new </Link>
+                    </StyledMark>
+                    
                 </li>
             </NavList>
         </Nav>
