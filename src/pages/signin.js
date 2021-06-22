@@ -31,7 +31,7 @@ const SignIn = props => {
       <React.Fragment>
         <UserForm action={signIn} formType="signIn" />
         {/* if the data is loading, display a loading message*/}
-        {loading && <p>Loading...</p>}
+        {loading && <p></p>}
         {/* if there is an error, display a error message*/}
         {error && <p>Error signin in!</p>}
       </React.Fragment>

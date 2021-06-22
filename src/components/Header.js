@@ -19,7 +19,7 @@ const HeaderBar = styled.header`
     height: 64px
     position: fixed;
     align-items: center;
-    background-color: #FFFAFD;
+    background-color: #f7fcfa;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
     z-index: 1;
 
@@ -28,20 +28,22 @@ const HeaderBar = styled.header`
 const LogoText = styled.h1`
     margin: 150px;
     margin-top: 40px;
+    margin-left: 170px;
     padding: 0;
     display: inline;
-    color: #000000;
+    color: #8c9db8;
 `;
 
 const LogText = styled.p`
-    margin: 150px;
+    margin: auto;
+    margin-left: auto;
     margin-top: 40px;
     padding: 0;
     display: inline;
 `;
 
 const UserState = styled.div`
-    margin-left: auto;
+    margin-left: 1200px;
 `;
 
 const Header = props => {
@@ -50,7 +52,7 @@ const Header = props => {
   
     return (
       <HeaderBar>
-        <LogoText>Task<BiCheck size="2em" /></LogoText>
+        <LogoText>Tasks<BiCheck size="2em" /></LogoText>
         {/* If logged in display a log out link, else display sign in options */}
         <UserState>
           {data.isLoggedIn ? (

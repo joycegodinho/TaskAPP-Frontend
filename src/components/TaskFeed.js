@@ -1,48 +1,91 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { BiBookmark } from "react-icons/bi";
 
 //background-image: linear-gradient(to bottom right, #F8F8FC ,#FFFFFF);
 
-const getBackgroundColor = () => {
-    var colors = ["#FFE1B0","#FDE8C6","#FFF3DF","#FEF898","#FEFABD","#FDFBD3","#CBFEFA","#DEFEFB","#EEFFFE", "#FEC7E4", "#FEDEEF", "#FFEAF5"];
-    var len = colors.length;
-    var randomNum = Math.floor(Math.random()*len);
-    var color = colors[randomNum];
-    colors.splice(randomNum, 1);
-    return color;
 
-}
 
 const TaskWrapper = styled.div`
-    max-width: 800px;
-    margin: 0 auto;
-    margin-bottom: 2em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-
-    border-radius: 10px;
-    background-color: ${getBackgroundColor};
-    
+    width: 930px;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 170px;
 `
 
 const TasksWrapper = styled.div`
     padding-bottom: 5em;
+    padding-top: 2em;
+    margin-left: 40px;
+    justify-content: space-between;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+ 
+  
 `
 
+const StyledNote = styled.article`
+    width: 180px;
+
+    margin: 0px;
+    margin-left: 0px;
+    margin-bottom: auto;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    padding-left: 0.8em;
+    padding-right: 0em;
+
+
+    border-bottom: 1px solid #B8B8B9;
+    border-top: 1px solid #B8B8B9;
+    border-left: 1px solid #B8B8B9;
+    border-right: 1px solid #B8B8B9;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+
+    border-radius: 10px;
+
+    position: fixed;
+
+
+    background-color: #bfebda;
+`;
+const StyledNumber = styled.a`
+    text-decoration: underline;
+    font-weight: bold;
+    margin-left: 3px;
+    color: #FFFFFF;
+`
+const StyledNoteContent = styled.p`
+    font-weight: bold;
+    color: #FFFFFF;
+`
 import Task from './Task';
 
 
 const TaskFeed = ({ tasks }) => {
     return (
         <TasksWrapper>
-            {tasks.map(task => (
+            
+            <StyledNote>
+                <StyledNoteContent>
+                    Number of tasks: <StyledNumber>{tasks.length}</StyledNumber> 
+                </StyledNoteContent>
+            </StyledNote>
+          
+
+            <div>
+                {tasks.map((task, index) => (
+
+
                 <TaskWrapper key={task.id}>
-                    <Task task={task} />             
+                    <Task task={task} index={index + 1} />             
                 </TaskWrapper>
-            ))}
+                ))}
+            </div>
+
         </TasksWrapper>
     )
 }

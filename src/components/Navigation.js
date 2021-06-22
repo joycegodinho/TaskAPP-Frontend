@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { BiCalendarExclamation, BiCalendarHeart, BiCalendarCheck, BiCalendarPlus } from "react-icons/bi";
 
 const Nav = styled.nav`
     padding: 2em;
-    background: #FFFAFD;
+    background: #f7fcfa;
 
     @media (max-width: 700px) {
         padding-top: 64px;
@@ -12,7 +13,7 @@ const Nav = styled.nav`
 
     @media (min-width: 700px) {
         position: fixed;
-        width: 180px;
+        width: 200px;
         height: calc(100% - 64px);
     }
 `;
@@ -29,16 +30,16 @@ const NavList = styled.ul`
         text-decoration: none;
         font-weight: bold;
         font-size: 1.1em;
-        color: #000000;
+        color: #8c9db8;
     }
 
     a:visited {
-        color: #000000;
+        color: #8c9db8;
     }
 
     a:hover,
     a:focus {
-        color: #0077cc;
+        color: #a8d9d5;
     }
 `;
 const StyledMark = styled.mark`
@@ -52,19 +53,20 @@ const Navigation = () => {
         <Nav>
             <NavList>
                 <li>
-                    <Link to="/">All Tasks</Link>
+                    <p></p>
+                    <Link to="/"><BiCalendarHeart size="1.5em" /> Home</Link>
                 </li>
                 <li>
-                    <Link to="/todo">To Do</Link>
+                    <p></p>
+                    <Link to="/todo"><BiCalendarExclamation size="1.5em" /> To Do</Link>
                 </li>
                 <li>
-                    <Link to="/done">Done</Link>
+                    <p></p>
+                    <Link to="/done"><BiCalendarCheck size="1.5em" /> Done</Link>
                 </li>
                 <li>
-                    <StyledMark>
-                        <Link to='/new'>+ new </Link>
-                    </StyledMark>
-                    
+                    <p></p>            
+                    <Link to='/new'><BiCalendarPlus size="1.5em"/> New</Link>
                 </li>
             </NavList>
         </Nav>

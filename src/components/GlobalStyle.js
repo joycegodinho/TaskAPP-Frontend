@@ -22,7 +22,7 @@ export default createGlobalStyle `
 
     a:link, 
     a:visited {
-        color: #0077cc;
+        color: #7b89a1;
     }
 
     a:hover, 

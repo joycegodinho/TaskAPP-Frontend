@@ -69852,7 +69852,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var _default = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    ", "\n\n    *, *:before, *:after {\n        box-sizing: border-box;\n    }\n\n    body,\n    html {\n        height: 100%;\n        margin: 0 px;\n    }\n\n    body {\n        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;\n        background-color: #FFFFFF;\n        line-height: 1.4;\n    }\n\n    a:link, \n    a:visited {\n        color: #0077cc;\n    }\n\n    a:hover, \n    a:focus {\n        color: #004499\n    }\n\n    code,\n    pre {\n        max-width: 100%;\n    }\n"])), _normalize.default);
+var _default = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    ", "\n\n    *, *:before, *:after {\n        box-sizing: border-box;\n    }\n\n    body,\n    html {\n        height: 100%;\n        margin: 0 px;\n    }\n\n    body {\n        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;\n        background-color: #FFFFFF;\n        line-height: 1.4;\n    }\n\n    a:link, \n    a:visited {\n        color: #7b89a1;\n    }\n\n    a:hover, \n    a:focus {\n        color: #004499\n    }\n\n    code,\n    pre {\n        max-width: 100%;\n    }\n"])), _normalize.default);
 
 exports.default = _default;
 },{"styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","normalize.css":"../node_modules/normalize.css/normalize.css"}],"../node_modules/@babel/runtime/helpers/setPrototypeOf/_index.mjs":[function(require,module,exports) {
@@ -90480,7 +90480,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var ButtonAsLink = _styledComponents.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  background: none;\n  color: #0077cc;\n  border: none;\n  margin-top: 10px;\n  margin-left: 150px;\n  padding: 0;\n  font: inherit;\n  text-decoration: none;\n  cursor: pointer;\n\n\n  :hover,\n  :active {\n    color: #004499;\n  }\n"])));
+var ButtonAsLink = _styledComponents.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  background: none;\n  color: #7b89a1;\n  border: none;\n  margin-top: 10px;\n  padding: 0;\n  font: inherit;\n  text-decoration: none;\n  cursor: pointer;\n\n\n  :hover,\n  :active {\n    color: #004499;\n  }\n"])));
 
 var _default = ButtonAsLink;
 exports.default = _default;
@@ -90512,13 +90512,13 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var IS_LOGGED_IN = (0, _client.gql)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    {\n        isLoggedIn @client\n    }\n"])));
 
-var HeaderBar = _styledComponents.default.header(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 1.5em 2em;\n    diplay: flex;\n    height: 64px\n    position: fixed;\n    align-items: center;\n    background-color: #FFFAFD;\n    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);\n    z-index: 1;\n\n"])));
+var HeaderBar = _styledComponents.default.header(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 1.5em 2em;\n    diplay: flex;\n    height: 64px\n    position: fixed;\n    align-items: center;\n    background-color: #f7fcfa;\n    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);\n    z-index: 1;\n\n"])));
 
-var LogoText = _styledComponents.default.h1(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    margin: 150px;\n    margin-top: 40px;\n    padding: 0;\n    display: inline;\n    color: #000000;\n"])));
+var LogoText = _styledComponents.default.h1(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    margin: 150px;\n    margin-top: 40px;\n    margin-left: 170px;\n    padding: 0;\n    display: inline;\n    color: #8c9db8;\n"])));
 
-var LogText = _styledComponents.default.p(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    margin: 150px;\n    margin-top: 40px;\n    padding: 0;\n    display: inline;\n"])));
+var LogText = _styledComponents.default.p(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    margin: auto;\n    margin-left: auto;\n    margin-top: 40px;\n    padding: 0;\n    display: inline;\n"])));
 
-var UserState = _styledComponents.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    margin-left: auto;\n"])));
+var UserState = _styledComponents.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    margin-left: 1200px;\n"])));
 
 var Header = function Header(props) {
   // query hook for user logged in state
@@ -90526,7 +90526,7 @@ var Header = function Header(props) {
       data = _useQuery.data,
       client = _useQuery.client;
 
-  return _react.default.createElement(HeaderBar, null, _react.default.createElement(LogoText, null, "Task", _react.default.createElement(_bi.BiCheck, {
+  return _react.default.createElement(HeaderBar, null, _react.default.createElement(LogoText, null, "Tasks", _react.default.createElement(_bi.BiCheck, {
     size: "2em"
   })), _react.default.createElement(UserState, null, data.isLoggedIn ? _react.default.createElement(_ButtonAsLink.default, {
     onClick: function onClick() {
@@ -90568,33 +90568,43 @@ var _reactRouterDom = require("react-router-dom");
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
+var _bi = require("react-icons/bi");
+
 var _templateObject, _templateObject2, _templateObject3;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Nav = _styledComponents.default.nav(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    padding: 2em;\n    background: #FFFAFD;\n\n    @media (max-width: 700px) {\n        padding-top: 64px;\n    }\n\n    @media (min-width: 700px) {\n        position: fixed;\n        width: 180px;\n        height: calc(100% - 64px);\n    }\n"])));
+var Nav = _styledComponents.default.nav(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    padding: 2em;\n    background: #f7fcfa;\n\n    @media (max-width: 700px) {\n        padding-top: 64px;\n    }\n\n    @media (min-width: 700px) {\n        position: fixed;\n        width: 200px;\n        height: calc(100% - 64px);\n    }\n"])));
 
-var NavList = _styledComponents.default.ul(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    margin: 10px;\n    padding: 10px;\n    list-style: none;\n    line-height: 2;\n\n\n\n    a {\n        text-decoration: none;\n        font-weight: bold;\n        font-size: 1.1em;\n        color: #000000;\n    }\n\n    a:visited {\n        color: #000000;\n    }\n\n    a:hover,\n    a:focus {\n        color: #0077cc;\n    }\n"])));
+var NavList = _styledComponents.default.ul(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    margin: 10px;\n    padding: 10px;\n    list-style: none;\n    line-height: 2;\n\n\n\n    a {\n        text-decoration: none;\n        font-weight: bold;\n        font-size: 1.1em;\n        color: #8c9db8;\n    }\n\n    a:visited {\n        color: #8c9db8;\n    }\n\n    a:hover,\n    a:focus {\n        color: #a8d9d5;\n    }\n"])));
 
 var StyledMark = _styledComponents.default.mark(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    background-color: #BFD2FF; \n    border-radius: 0.2em 0.2em;\n    \n"])));
 
 var Navigation = function Navigation() {
-  return _react.default.createElement(Nav, null, _react.default.createElement(NavList, null, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+  return _react.default.createElement(Nav, null, _react.default.createElement(NavList, null, _react.default.createElement("li", null, _react.default.createElement("p", null), _react.default.createElement(_reactRouterDom.Link, {
     to: "/"
-  }, "All Tasks")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+  }, _react.default.createElement(_bi.BiCalendarHeart, {
+    size: "1.5em"
+  }), " Home")), _react.default.createElement("li", null, _react.default.createElement("p", null), _react.default.createElement(_reactRouterDom.Link, {
     to: "/todo"
-  }, "To Do")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+  }, _react.default.createElement(_bi.BiCalendarExclamation, {
+    size: "1.5em"
+  }), " To Do")), _react.default.createElement("li", null, _react.default.createElement("p", null), _react.default.createElement(_reactRouterDom.Link, {
     to: "/done"
-  }, "Done")), _react.default.createElement("li", null, _react.default.createElement(StyledMark, null, _react.default.createElement(_reactRouterDom.Link, {
+  }, _react.default.createElement(_bi.BiCalendarCheck, {
+    size: "1.5em"
+  }), " Done")), _react.default.createElement("li", null, _react.default.createElement("p", null), _react.default.createElement(_reactRouterDom.Link, {
     to: "/new"
-  }, "+ new ")))));
+  }, _react.default.createElement(_bi.BiCalendarPlus, {
+    size: "1.5em"
+  }), " New"))));
 };
 
 var _default = Navigation;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/Layout.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-icons/bi":"../node_modules/react-icons/bi/index.esm.js"}],"components/Layout.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118108,31 +118118,56 @@ var _bi = require("react-icons/bi");
 
 var _DeleteTask = _interopRequireDefault(require("./DeleteTask"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var StyledTask = _styledComponents.default.article(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n    color: #000000;\n\n"])));
+var getBackgroundColor = function getBackgroundColor() {
+  var colors = ["#eff3fa", "#f7f9fc"];
+  var len = colors.length;
+  var randomNum = Math.floor(Math.random() * len);
+  var color = colors[randomNum];
+  colors.splice(randomNum, 1);
+  return color;
+};
 
-var MetaData = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    width: 100%;\n    \n\n\n\n"])));
+var StyledTask = _styledComponents.default.article(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 700px;\n    margin-left: 90px;\n    margin-bottom: 2em;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    padding-left: 1em;\n    padding-right: 1em;\n\n    border-bottom: 1px solid #B8B8B9;\n    border-top: 1px solid #B8B8B9;\n    border-left: 1px solid #B8B8B9;\n    border-right: 1px solid #B8B8B9;\n    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);\n\n    border-radius: 10px;\n    background-color: ", ";\n"])), getBackgroundColor);
 
-var MetaInfo = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n\n    width: 500px;\n    height: 50px;\n  \n"])));
+var TaskLayout = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    width: 100%;\n"])));
 
-var MetaInfoTime = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 50px;  \n    \n"])));
+var ImageLayout = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    height: auto; \n    width: 80px;\n"])));
 
-var StyledMark = _styledComponents.default.mark(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    background-color: #FDFF70; \n    border-radius: 0.8em 0.3em;\n    \n"])));
+var StyledMarkDown = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    margin-left: 9.8%\n"])));
 
-var StyledMarkUpdated = _styledComponents.default.mark(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    background-color: #FCC370; \n    border-radius: 0.8em 0.3em;\n    \n    \n"])));
+var MetaData = _styledComponents.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    width: 100%;  \n"])));
 
-var StyledMarkCompleted = _styledComponents.default.mark(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    background-color: #FD8FCB; \n    border-radius: 0.4em 0.2em;\n    \n    \n"])));
+var MetaInfo = _styledComponents.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    width: auto;\n    height: auto;\n    margin-top: 0px;\n"])));
 
-var LinkOptions = _styledComponents.default.div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 50px; \n    text-align: right;   \n    \n"])));
+var StyledTitle = _styledComponents.default.h2(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    color: #8c9db8\n"])));
+
+var MetaInfoTime = _styledComponents.default.div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    width: auto; \n    height: auto;   \n    margin-top: 10px;\n    text-align: center; \n"])));
+
+var StyledMark = _styledComponents.default.mark(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    background-color: #a8d9d5; \n    border-radius: 0.4em 0.2em;  \n"])));
+
+var StyledTime = _styledComponents.default.a(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    margin-left: 5px;\n    color: #7cc7c0;\n"])));
+
+var StyledMarkUpdated = _styledComponents.default.mark(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n    background-color: #FCC370; \n    border-radius: 0.8em 0.3em;\n"])));
+
+var StyledMarkCompleted = _styledComponents.default.mark(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n    background-color: #a8d9d5; \n    border-radius: 0.4em 0.2em; \n"])));
+
+var StyledCompleted = _styledComponents.default.a(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n    text-decoration: underline;\n    color: #7cc7c0;\n    font-weight: bold;\n    margin-left: 5px;\n    font-size: 18px;\n"])));
+
+var LinkOptions = _styledComponents.default.div(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n    width: auto; \n    height: auto;  \n    justify-content: space-between;\n    margin-top: 5px; \n    padding-right: 10px; \n    text-align: right;   \n"])));
 
 var Task = function Task(_ref) {
-  var task = _ref.task;
-  return _react.default.createElement(StyledTask, null, _react.default.createElement(MetaData, null, _react.default.createElement(MetaInfo, null, _react.default.createElement("em", null, "by"), " ", task.author.username, " ", _react.default.createElement("br", null), _react.default.createElement(_react.default.Fragment, null, task.completed && _react.default.createElement("p", null, _react.default.createElement("em", null, "completed "), _react.default.createElement(StyledMarkCompleted, null, task.completed)))), _react.default.createElement(MetaInfoTime, null, _react.default.createElement("em", null, "created at "), _react.default.createElement(StyledMark, null, (0, _dateFns.format)(new Date(task.createdAt), 'MM dd yyyy H:mm'), " ", _react.default.createElement("br", null)), _react.default.createElement("em", null, "updated at "), _react.default.createElement(StyledMarkUpdated, null, (0, _dateFns.format)(new Date(task.updatedAt), 'MM dd yyyy H:mm'))), _react.default.createElement(LinkOptions, null, _react.default.createElement(_DeleteTask.default, {
+  var task = _ref.task,
+      index = _ref.index;
+  return _react.default.createElement(StyledTask, null, _react.default.createElement(TaskLayout, null, _react.default.createElement(ImageLayout, null, _react.default.createElement(_bi.BiBookmark, {
+    size: "3em",
+    color: "#a8d9d5"
+  })), _react.default.createElement(MetaData, null, _react.default.createElement(MetaInfo, null, index ? _react.default.createElement(StyledTitle, null, "Task ", index) : _react.default.createElement(StyledTitle, null, "Task"), _react.default.createElement(_react.default.Fragment, null, task.completed && _react.default.createElement("p", null, _react.default.createElement(StyledMarkCompleted, null, _react.default.createElement("em", null, "Completed: ")), _react.default.createElement(StyledCompleted, null, task.completed)))), _react.default.createElement(MetaInfoTime, null, _react.default.createElement("p", null, _react.default.createElement(StyledMark, null, _react.default.createElement("em", null, "created at ")), _react.default.createElement(StyledTime, null, (0, _dateFns.format)(new Date(task.createdAt), 'H:mm MM/dd/yyyy'), " ", _react.default.createElement("br", null))), _react.default.createElement(StyledMark, null, _react.default.createElement("em", null, "updated at ")), _react.default.createElement(StyledTime, null, (0, _dateFns.format)(new Date(task.updatedAt), 'H:mm MM/dd/yyyy'))), _react.default.createElement(LinkOptions, null, _react.default.createElement(_DeleteTask.default, {
     taskId: task.id
   }), " ", _react.default.createElement("br", null), _react.default.createElement(_reactRouterDom.Link, {
     to: "/edit/".concat(task.id)
@@ -118142,9 +118177,9 @@ var Task = function Task(_ref) {
     to: "task/".concat(task.id)
   }, _react.default.createElement(_bi.BiChevronDownSquare, {
     size: "1.5em"
-  })))), _react.default.createElement(_reactMarkdown.default, {
+  }))))), _react.default.createElement(StyledMarkDown, null, _react.default.createElement(_reactMarkdown.default, {
     source: task.content
-  }));
+  })));
 };
 
 var _default = Task;
@@ -118163,42 +118198,42 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _reactRouterDom = require("react-router-dom");
 
+var _bi = require("react-icons/bi");
+
 var _Task = _interopRequireDefault(require("./Task"));
 
-var _templateObject, _templateObject2;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 //background-image: linear-gradient(to bottom right, #F8F8FC ,#FFFFFF);
-var getBackgroundColor = function getBackgroundColor() {
-  var colors = ["#FFE1B0", "#FDE8C6", "#FFF3DF", "#FEF898", "#FEFABD", "#FDFBD3", "#CBFEFA", "#DEFEFB", "#EEFFFE", "#FEC7E4", "#FEDEEF", "#FFEAF5"];
-  var len = colors.length;
-  var randomNum = Math.floor(Math.random() * len);
-  var color = colors[randomNum];
-  colors.splice(randomNum, 1);
-  return color;
-};
+var TaskWrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 930px;\n    margin: 0px;\n    padding: 0px;\n    margin-left: 170px;\n"])));
 
-var TaskWrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n    margin-bottom: 2em;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    padding-left: 1em;\n    padding-right: 1em;\n\n    border-radius: 10px;\n    background-color: ", ";\n    \n"])), getBackgroundColor);
+var TasksWrapper = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    padding-bottom: 5em;\n    padding-top: 2em;\n    margin-left: 40px;\n    justify-content: space-between;\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n\n \n  \n"])));
 
-var TasksWrapper = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    padding-bottom: 5em;\n"])));
+var StyledNote = _styledComponents.default.article(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 180px;\n\n    margin: 0px;\n    margin-left: 0px;\n    margin-bottom: auto;\n    padding-top: 0em;\n    padding-bottom: 0em;\n    padding-left: 0.8em;\n    padding-right: 0em;\n\n\n    border-bottom: 1px solid #B8B8B9;\n    border-top: 1px solid #B8B8B9;\n    border-left: 1px solid #B8B8B9;\n    border-right: 1px solid #B8B8B9;\n    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);\n\n    border-radius: 10px;\n\n    position: fixed;\n\n\n    background-color: #bfebda;\n"])));
+
+var StyledNumber = _styledComponents.default.a(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    text-decoration: underline;\n    font-weight: bold;\n    margin-left: 3px;\n    color: #FFFFFF;\n"])));
+
+var StyledNoteContent = _styledComponents.default.p(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    font-weight: bold;\n    color: #FFFFFF;\n"])));
 
 var TaskFeed = function TaskFeed(_ref) {
   var tasks = _ref.tasks;
-  return _react.default.createElement(TasksWrapper, null, tasks.map(function (task) {
+  return _react.default.createElement(TasksWrapper, null, _react.default.createElement(StyledNote, null, _react.default.createElement(StyledNoteContent, null, "Number of tasks: ", _react.default.createElement(StyledNumber, null, tasks.length))), _react.default.createElement("div", null, tasks.map(function (task, index) {
     return _react.default.createElement(TaskWrapper, {
       key: task.id
     }, _react.default.createElement(_Task.default, {
-      task: task
+      task: task,
+      index: index + 1
     }));
-  }));
+  })));
 };
 
 var _default = TaskFeed;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./Task":"components/Task.js"}],"components/Button.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-icons/bi":"../node_modules/react-icons/bi/index.esm.js","./Task":"components/Task.js"}],"components/Button.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118214,7 +118249,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Button = _styledComponents.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral([" \n    display: block;\n    border-top: 9em;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    margin-bottom: 9em;\n    border: none;\n    border-radius: 5px;\n    font-size: 20px;\n    color: #7B7D7D;\n    background-color: #D1DEFE ;\n    cursor: pointer;\n\n    :hover {\n        background-color: #EAEDED;\n    }\n\n    :active {\n        background-color: #E5E8E8;\n    }\n"])));
+var Button = _styledComponents.default.button(_templateObject || (_templateObject = _taggedTemplateLiteral([" \n    display: block;\n    border-top: 9em;\n    padding: 8px;\n    margin-bottom: 9em;\n    border: none;\n    border-radius: 5px;\n    font-size: 20px;\n    color: #FFFFFF;\n    background-color: #d7f2e8 ;\n    cursor: pointer;\n\n\n    box-shadow: 0 0 3px 0 #B8B8B9;\n\n    :hover {\n        background-color: #EAEDED;\n    }\n\n    :active {\n        background-color: #E5E8E8;\n    }\n"])));
 
 var _default = Button;
 exports.default = _default;
@@ -118261,7 +118296,7 @@ var Home = function Home() {
       error = _useQuery.error,
       fetchMore = _useQuery.fetchMore;
 
-  if (loading) return _react.default.createElement("p", null, "Loading...");
+  if (loading) return _react.default.createElement("p", null);
   if (error) return _react.default.createElement("p", null, "Error!");
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_TaskFeed.default, {
     tasks: data.tasks.tasks
@@ -118347,7 +118382,7 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _Button = _interopRequireDefault(require("./Button"));
 
-var _templateObject, _templateObject2;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118375,9 +118410,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    background-image: linear-gradient(to bottom right, #FFFAFD ,#FFFFFF);\n    border 1px solid #f5f4f0;\n    max-width: 500px;\n    padding: 1em;\n    margin: 0 auto;\n    \n"])));
+var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    border-bottom: 1px solid #B8B8B9;\n    border-top: 1px solid #B8B8B9;\n    border-left: 1px solid #B8B8B9;\n    border-right: 1px solid #B8B8B9;\n    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);\n    border-radius: 10px;\n    background-image: #FFFFFF;\n    color: #000000;\n    max-width: 500px;\n    height: auto;\n    max-height: 400px;\n    padding: 1em;\n    margin: auto;\n\n    \n"])));
 
 var Form = _styledComponents.default.form(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    \n    label,\n    input {\n        display: block;\n        line-height: 2em;\n    }\n    input {\n        width: 100%;\n        margin-bottom: 1em;\n    }\n"])));
+
+var Input = _styledComponents.default.input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    border-radius: 5px;\n    border-bottom: 1px solid #B8B8B9;\n    border-top: 1px solid #B8B8B9;\n    border-left: 1px solid #B8B8B9;\n    border-right: 1px solid #B8B8B9;\n    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);\n"])));
+
+var StyledButtom = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    margin-left:195px;\n    margin-top: 20px;\n\n"])));
 
 var UserForm = function UserForm(props) {
   var _useState = (0, _react.useState)(),
@@ -118398,7 +118437,7 @@ var UserForm = function UserForm(props) {
     }
   }, props.formType === 'signup' && _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("label", {
     htmlFor: "username"
-  }, "Username:"), _react.default.createElement("input", {
+  }, "Username:"), _react.default.createElement(Input, {
     required: true,
     type: "text",
     id: "username",
@@ -118407,7 +118446,7 @@ var UserForm = function UserForm(props) {
     onChange: onChange
   })), _react.default.createElement("label", {
     htmlFor: "email"
-  }, "Email:"), _react.default.createElement("input", {
+  }, "Email:"), _react.default.createElement(Input, {
     required: true,
     type: "email",
     id: "email",
@@ -118416,16 +118455,16 @@ var UserForm = function UserForm(props) {
     onChange: onChange
   }), _react.default.createElement("label", {
     htmlFor: "password"
-  }, "Password:"), _react.default.createElement("input", {
+  }, "Password:"), _react.default.createElement(Input, {
     required: true,
     type: "password",
     id: "password",
     name: "password",
     placeholder: "Password",
     onChange: onChange
-  }), _react.default.createElement(_Button.default, {
+  }), _react.default.createElement(StyledButtom, null, _react.default.createElement(_Button.default, {
     type: "submit"
-  }, "Submit")));
+  }, "Submit"))));
 };
 
 var _default = UserForm;
@@ -118495,7 +118534,7 @@ var SignUp = function SignUp(props) {
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_UserForm.default, {
     action: signUp,
     formType: "signup"
-  }), loading && _react.default.createElement("p", null, "Loading..."), error && _react.default.createElement("p", null, "Error creating an account!"));
+  }), loading && _react.default.createElement("p", null), error && _react.default.createElement("p", null, "Error creating an account!"));
 };
 
 var _default = SignUp;
@@ -118565,7 +118604,7 @@ var SignIn = function SignIn(props) {
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_UserForm.default, {
     action: signIn,
     formType: "signIn"
-  }), loading && _react.default.createElement("p", null, "Loading..."), error && _react.default.createElement("p", null, "Error signin in!"));
+  }), loading && _react.default.createElement("p", null), error && _react.default.createElement("p", null, "Error signin in!"));
 };
 
 var _default = SignIn;
@@ -118584,7 +118623,7 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _Button = _interopRequireDefault(require("./Button"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118612,22 +118651,24 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 100%\n"])));
+var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 100%\n  \n"])));
 
-var Form = _styledComponents.default.form(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    height: 100%\n"])));
+var Form = _styledComponents.default.form(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 60%;\n    height: 60%;\n    margin-top: 25px;\n    margin-left: 60px;\n\n"])));
 
-var TextArea = _styledComponents.default.textarea(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 60%;\n    height: 60%;\n    margin-bottom: 15px;\n"])));
+var TextArea = _styledComponents.default.textarea(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 80%;\n    height: 80%;\n    border-bottom: 1px solid #B8B8B9;\n    border-top: 1px solid #B8B8B9;\n    border-left: 1px solid #B8B8B9;\n    border-right: 1px solid #B8B8B9;\n    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);\n    border-radius: 10px;\n    background-image: #FFFFFF;\n    color: #000000;\n    margin: 0 auto;\n    margin-bottom: 2em;\n    padding-top: 0.7em;\n    padding-bottom: 1em;\n    padding-left: 1em;\n    padding-right: 1.5em;\n"])));
 
-var Status = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    margin-bottom: 15px;\n"])));
+var Status = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    margin-bottom: 35px;\n"])));
 
-var Select = _styledComponents.default.select(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    border-radius: 0.3em;\n"])));
+var Select = _styledComponents.default.select(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    border-radius: 0.3em;\n    border-bottom: 1px solid #B8B8B9;\n    border-top: 1px solid #B8B8B9;\n    border-left: 1px solid #B8B8B9;\n    border-right: 1px solid #B8B8B9;\n    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);\n"])));
+
+var StyledMarkCompleted = _styledComponents.default.mark(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    background-color: #cfdcf0; \n    border-radius: 0.4em 0.2em; \n"])));
+
+var StyledButtom = _styledComponents.default.div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    margin-left:230px;\n\n"])));
 
 var TaskForm = function TaskForm(props) {
-  var _useState = (0, _react.useState)([{
+  var _useState = (0, _react.useState)({
     content: props.content || ''
-  }, {
-    completed: props.completed
-  }]),
+  }),
       _useState2 = _slicedToArray(_useState, 2),
       value = _useState2[0],
       setValue = _useState2[1];
@@ -118650,7 +118691,7 @@ var TaskForm = function TaskForm(props) {
     placeholder: "Task content",
     value: value.content,
     onChange: onChange
-  }), _react.default.createElement(Status, null, _react.default.createElement("label", null, "Completed "), _react.default.createElement(Select, {
+  }), _react.default.createElement(Status, null, _react.default.createElement("label", null, _react.default.createElement(StyledMarkCompleted, null, " Completed"), " "), _react.default.createElement(Select, {
     name: "completed",
     value: value.completed,
     placeholder: "select",
@@ -118662,9 +118703,9 @@ var TaskForm = function TaskForm(props) {
     value: "True"
   }, "True"), _react.default.createElement("option", {
     value: "False"
-  }, "False"))), _react.default.createElement(_Button.default, {
+  }, "False"))), _react.default.createElement(StyledButtom, null, _react.default.createElement(_Button.default, {
     type: "submit"
-  }, "Save")));
+  }, "Save"))));
 };
 
 var _default = TaskForm;
@@ -118870,7 +118911,7 @@ var ToDo = function ToDo() {
       error = _useQuery.error,
       fetchMore = _useQuery.fetchMore;
 
-  if (loading) return _react.default.createElement("p", null, "Loading...");
+  if (loading) return _react.default.createElement("p", null);
   if (error) return _react.default.createElement("p", null, "Error!");
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_TaskFeed.default, {
     tasks: data.tasksToDo.tasks
@@ -118941,7 +118982,7 @@ var Done = function Done() {
       error = _useQuery.error,
       fetchMore = _useQuery.fetchMore;
 
-  if (loading) return _react.default.createElement("p", null, "Loading...");
+  if (loading) return _react.default.createElement("p", null);
   if (error) return _react.default.createElement("p", null, "Error!");
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_TaskFeed.default, {
     tasks: data.tasksDone.tasks
@@ -119169,7 +119210,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50379" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57931" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

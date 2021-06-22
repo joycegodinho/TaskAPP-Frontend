@@ -27,7 +27,7 @@ const GET_TASKS_DONE = gql`
 const Done = () => {
 
     const {data, loading, error, fetchMore } = useQuery(GET_TASKS_DONE);
-    if(loading) return <p>Loading...</p>;
+    if(loading) return <p></p>;
     if(error) return <p>Error!</p>;
     return (
         <React.Fragment>

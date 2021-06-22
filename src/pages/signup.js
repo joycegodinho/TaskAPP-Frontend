@@ -34,7 +34,7 @@ const SignUp = props => {
       <React.Fragment>
         <UserForm action={signUp} formType="signup" />
         {/* if the data is loading, display a loading message*/}
-        {loading && <p>Loading...</p>}
+        {loading && <p></p>}
         {/* if there is an error, display a error message*/}
         {error && <p>Error creating an account!</p>}
       </React.Fragment>
